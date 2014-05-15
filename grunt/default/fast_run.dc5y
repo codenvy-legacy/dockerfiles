@@ -7,13 +7,7 @@ RUN cd /tmp/application && \
  npm install && \
  bower install --config.interactive=false
 
-# Get permission problem when try add content of application directory to the container.
-# Seems it's is known issue: https://github.com/dotcloud/docker/issues/2158 .
-# Workaround:
-# 1. Use ADD instruction as root.
-ADD $app$ /home/user/tmp/
-# 2. Copy directory as user.
-RUN cp -a /home/user/tmp/. /home/user/application/
+VOLUME ["/home/user/application"]
 
 CMD [ -e /home/user/application/node_modules ] || cp -a /tmp/application/node_modules /home/user/application/ && \
     [ -e /home/user/application/app/bower_components ] || cp -a /tmp/application/bower_components /home/user/application/app/ && \

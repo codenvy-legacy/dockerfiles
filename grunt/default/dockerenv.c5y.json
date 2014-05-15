@@ -1,5 +1,6 @@
 {
-    "webPort":9000,
-    "bindAppDir":"/opt/application",
-    "description":"Yeoman environment that includs bower and grunt."
+    "runDockerfileName": "fast_run.dc5y",
+    "webPort": 9000,
+    "bindAppDir": "/home/user/application",
+    "description": "Yeoman environment that includs bower and grunt."
 }

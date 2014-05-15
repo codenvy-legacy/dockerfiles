@@ -9,16 +9,14 @@ RUN apt-get update && \
 
 # 1/ add new user
 # 2/ create directory for application
-RUN adduser --disabled-password -uid 1000 -gid 100 --home=/home/user --gecos "" user && \
-    mkdir /opt/application && \
-    chmod a+rwxs /opt/application && \
-    mkdir /tmp/application && \
-    chmod a+rwxs /tmp/application
- 
+RUN adduser --disabled-password -uid 1000 -gid 100 --home=/home/user --gecos "" user
+
 ENV HOME /home/user 
 USER user    
+
+RUN mkdir /home/user/application /tmp/application
     
 # Grunt will listen on 9000 port number
 EXPOSE 9000
 
-WORKDIR /opt/application
+WORKDIR /home/user/application
