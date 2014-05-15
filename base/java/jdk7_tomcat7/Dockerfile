@@ -10,3 +10,12 @@ EXPOSE 8080
 WORKDIR /opt/apache-tomcat-7.0.53/bin
 
 CMD ./catalina.sh run
+
+# ===== Usage =====
+# FROM codenvy/jdk7_tomcat7
+# ADD $app$ /opt/apache-tomcat-7.0.53/webapps/ROOT.war
+# ===== OR (debug) =====
+# FROM codenvy/jdk7_tomcat7
+# EXPOSE 8000
+# CMD ./catalina.sh jpda run
+# ADD $app$ /opt/apache-tomcat-7.0.53/webapps/ROOT.war

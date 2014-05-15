@@ -1,0 +1,6 @@
+{
+    "id":"default",
+    "debugPort":8000,
+    "webPort":8080,
+    "description":"Tomcat7 based environment for Java web-applications."
+} 

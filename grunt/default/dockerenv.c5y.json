@@ -1,0 +1,5 @@
+{
+    "webPort":9000,
+    "bindAppDir":"/opt/application",
+    "description":"Yeoman environment that includs bower and grunt."
+}

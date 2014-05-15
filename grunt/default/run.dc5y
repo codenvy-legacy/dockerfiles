@@ -1,0 +1,15 @@
+FROM codenvy/angular-yeoman
+
+ADD $app$/package.json /tmp/application/package.json
+ADD $app$/bower.json /tmp/application/bower.json
+
+RUN cd /tmp/application && \
+ npm install && \
+ bower install --config.interactive=false
+
+VOLUME ["/opt/application"]
+
+CMD [ -e /opt/application/node_modules ] || cp -a /tmp/application/node_modules /opt/application/ && \
+    [ -e /opt/application/app/bower_components ] || cp -a /tmp/application/bower_components /opt/application/app/ && \
+    grunt serve
+    
