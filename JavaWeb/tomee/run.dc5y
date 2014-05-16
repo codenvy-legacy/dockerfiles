@@ -1,0 +1,2 @@
+FROM codenvy/jdk7_tomee
+ADD $app$ /opt/tomee/webapps/ROOT.war
