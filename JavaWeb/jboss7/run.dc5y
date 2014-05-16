@@ -1,0 +1,2 @@
+FROM codenvy/jdk7_jboss7
+ADD $app$ /opt/jboss7/standalone/deployments/ROOT.war
