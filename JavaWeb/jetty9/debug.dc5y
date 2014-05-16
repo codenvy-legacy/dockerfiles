@@ -1,0 +1,4 @@
+FROM codenvy/jdk7_jetty9
+EXPOSE 8000
+CMD java -Xdebug -agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n -jar start.jar
+ADD $app$ /opt/jetty-9.1.5/webapps/ROOT.war
