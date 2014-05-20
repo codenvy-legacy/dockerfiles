@@ -9,7 +9,7 @@ RUN apt-get update && \
 
 # 1/ add new user
 # 2/ create directory for application
-RUN adduser --disabled-password -uid 1000 -gid 100 --home=/home/user --gecos "" user
+RUN adduser --disabled-password -uid 5001 -gid 100 --home=/home/user --gecos "" user
 
 ENV HOME /home/user 
 USER user    
