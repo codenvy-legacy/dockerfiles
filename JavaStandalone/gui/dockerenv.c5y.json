@@ -1,0 +1,5 @@
+{
+    "id":"gui",
+    "webPort":6080,
+    "description":"VNC"
+}
