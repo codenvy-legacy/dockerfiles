@@ -25,10 +25,5 @@ RUN apt-get clean
 ADD startup.sh /
 ADD supervisord.conf /
 EXPOSE 6080
-EXPOSE 5900
-EXPOSE 5901
-EXPOSE 5902
-EXPOSE 3000
-EXPOSE 22
 WORKDIR /
 ENTRYPOINT ["/startup.sh"]
