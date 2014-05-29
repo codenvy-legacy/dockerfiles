@@ -1,29 +1,19 @@
 FROM codenvy/jdk7
 
-ENV DEBIAN_FRONTEND noninteractive
-
-RUN apt-get update
-
-RUN apt-mark hold initscripts udev plymouth mountall
-RUN dpkg-divert --local --rename --add /sbin/initctl && ln -sf /bin/true /sbin/initctl
-
-# install our "base" environment
-RUN apt-get install -y --no-install-recommends openssh-server pwgen sudo vim-tiny xterm git
-
-RUN apt-get install -y blackbox
-RUN apt-get install -y --no-install-recommends x11vnc xvfb
-RUN apt-get install -y supervisor
+RUN sudo apt-get install -y --no-install-recommends rxvt git blackbox x11vnc xvfb net-tools supervisor
 
 # noVNC
-RUN apt-get install -y net-tools
-RUN git clone git://github.com/kanaka/noVNC /noVNC/
-ADD index.html /noVNC/
+RUN sudo git clone git://github.com/kanaka/noVNC /opt/noVNC/
+ADD index.html /opt/noVNC/
 
-# clean up after ourselves
-RUN apt-get clean
+RUN sudo mkdir /etc/X11/blackbox/ -p && \
+    echo "[begin] (Blackbox) \n [exec] (rxvt)     {rxvt} \n [end]" | sudo tee -a /etc/X11/blackbox/blackbox-menu
 
-ADD startup.sh /
-ADD supervisord.conf /
+#RUN sudo sed -i '/exec "$@"/isudo /usr/bin/supervisord -c /opt/supervisord.conf' /entrypoint.sh
+ADD startup.sh /startup.sh
+RUN sudo chmod 755 /startup.sh
+
+ADD supervisord.conf /opt/
+
 EXPOSE 6080
-WORKDIR /
 ENTRYPOINT ["/startup.sh"]
