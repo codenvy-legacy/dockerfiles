@@ -22,8 +22,15 @@ ADD index.html /noVNC/
 # clean up after ourselves
 RUN apt-get clean
 
+RUN chown root:root /usr/bin/sudo
+RUN chmod 4755 /usr/bin/sudo
+
+RUN echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
+    useradd --shell /bin/bash -u 5001 -G users,sudo -d /home/user -m user && \
+    echo "secret\nsecret" | passwd user
+
 ADD startup.sh /
 ADD supervisord.conf /
 EXPOSE 6080
-WORKDIR /
+
 ENTRYPOINT ["/startup.sh"]
