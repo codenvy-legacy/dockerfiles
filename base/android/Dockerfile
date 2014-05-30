@@ -12,6 +12,11 @@ ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 RUN echo y | android update sdk --filter platform-tools,build-tools-19.0.3,android-17,sysimg-17,extra-android-support --no-ui --force && \
     echo no | android create avd -n myandroid -t android-17
 
-RUN sudo echo -e "[begin] (Blackbox) \n [exec] (Terminal) {urxvt -fn "xft:Terminus:size=12"} \n [exec] (Install .apk) {adb wait-for-device install /home/user/android.apk} \n [end]" | sudo tee /etc/X11/blackbox/blackbox-menu
+RUN sudo echo -e "[begin] (Blackbox) \n \
+      [exec] (Terminal) {urxvt -fn "xft:Terminus:size=12"} \n \
+      [exec] (Emulator) {emulator64-arm -avd myandroid} \n \
+      [exec] (Install .apk) {adb install /home/user/application.apk} \n \
+   [end]" | sudo tee /etc/X11/blackbox/blackbox-menu
 
-ADD supervisord.conf /opt/supervisord.conf
+# === Usage ===
+# ADD $app$ /home/user/application.apk

@@ -1,3 +1,2 @@
 FROM sleshchenko/android
-ADD $app$ /tmp/application.apk
-CMD sh /startup.sh; tail -f /var/log/x11vnc.log
+ADD $app$ /home/user/application.apk
