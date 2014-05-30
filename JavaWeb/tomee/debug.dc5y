@@ -1,4 +1,4 @@
 FROM codenvy/jdk7_tomee
 EXPOSE 8000
 CMD ./catalina.sh jpda run
-ADD $app$ /opt/tomee/webapps/ROOT.war
+ADD $app$ /home/user/tomee/webapps/ROOT.war

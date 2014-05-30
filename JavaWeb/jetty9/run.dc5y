@@ -1,2 +1,2 @@
 FROM codenvy/jdk7_jetty9
-ADD $app$ /opt/jetty-9.1.5/webapps/ROOT.war
+ADD $app$ /home/user/jetty9/webapps/ROOT.war
