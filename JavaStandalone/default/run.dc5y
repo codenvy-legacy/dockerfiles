@@ -1,0 +1,3 @@
+FROM codenvy/jdk7
+CMD java -jar /home/user/$app$ $args$
+ADD $app$ /home/user/$app$

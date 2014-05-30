@@ -1,0 +1,3 @@
+FROM codenvy/jdk7
+CMD java -Xdebug -agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n -jar /home/user/$app$ $args$
+ADD $app$ /home/user/$app$
