@@ -17,3 +17,8 @@ RUN sudo sed -i '/exec "$@"/i/usr/bin/supervisord -c /opt/supervisord.conf\n' /e
 WORKDIR /home/user
 
 EXPOSE 6080
+
+CMD /bin/bash
+
+# === Usage ===
+# ADD $app$ /home/user/application.jar

@@ -4,7 +4,7 @@ RUN apt-get update && \
     apt-get -y install sudo procps wget unzip gcc make
     
 RUN echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
-    useradd -u 5001 -G users,sudo -d /home/user -m user && \
+    useradd -u 5001 -G users,sudo -d /home/user --shell /bin/bash -m user && \
     echo "secret\nsecret" | passwd user
     
 RUN mkdir /opt/shellinabox && \
