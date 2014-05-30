@@ -8,7 +8,7 @@ RUN sudo mkdir /opt/noVNC && \
 ADD index.html /opt/noVNC/
 
 RUN sudo mkdir -p /etc/X11/blackbox && \
-    echo "[begin] (Blackbox) \n [exec] (Terminal)     {urxvt -fn "xft:Terminus:size=12"} \n [end]" | sudo tee -a /etc/X11/blackbox/blackbox-menu
+    echo -e "[begin] (Blackbox) \n [exec] (Terminal)     {urxvt -fn "xft:Terminus:size=12"} \n [end]" | sudo tee -a /etc/X11/blackbox/blackbox-menu
 
 ADD supervisord.conf /opt/
 
