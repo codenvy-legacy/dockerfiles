@@ -1,3 +1,2 @@
-FROM sleshchenko/vnc
-ADD $app$ /tmp/application.jar
-CMD sh /startup.sh; tail -f /var/log/x11vnc.log
+FROM codenvy/jdk7_vnc
+ADD $app$ /home/user/application.jar
