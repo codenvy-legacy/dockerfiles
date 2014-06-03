@@ -1,2 +1,2 @@
-FROM sleshchenko/android
+FROM codenvy/android
 ADD $app$ /home/user/application.apk
