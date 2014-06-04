@@ -1,6 +1,7 @@
 FROM codenvy/jdk7
 
-RUN sudo apt-get install -y --no-install-recommends supervisor x11vnc xvfb net-tools blackbox rxvt-unicode xfonts-terminus
+RUN sudo apt-get update && \
+    sudo apt-get install -y --no-install-recommends supervisor x11vnc xvfb net-tools blackbox rxvt-unicode xfonts-terminus
 
 # noVNC
 RUN sudo mkdir /opt/noVNC && \
@@ -8,7 +9,7 @@ RUN sudo mkdir /opt/noVNC && \
 ADD index.html /opt/noVNC/
 
 RUN sudo mkdir -p /etc/X11/blackbox && \
-    sudo echo -e "[begin] (Blackbox) \n [exec] (Terminal)     {urxvt -fn "xft:Terminus:size=12"} \n [end]" | sudo tee -a /etc/X11/blackbox/blackbox-menu
+    echo "[begin] (Blackbox) \n [exec] (Terminal)     {urxvt -fn "xft:Terminus:size=12"} \n [end]" | sudo tee -a /etc/X11/blackbox/blackbox-menu
 
 ADD supervisord.conf /opt/
 
