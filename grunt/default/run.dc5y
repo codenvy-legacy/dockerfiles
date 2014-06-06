@@ -12,5 +12,5 @@ RUN cd /tmp/application && \
 # 1. Use ADD instruction as root.
 ADD $app$ /home/user/tmp/
 # 2. Copy directory as user and launch grunt.
-CMD cp -a /home/user/tmp/. /home/user/application/ && grunt serve
+CMD cp -a /home/user/tmp/. /home/user/application/ && grunt server
     
