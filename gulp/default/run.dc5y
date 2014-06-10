@@ -1,0 +1,16 @@
+FROM codenvy/angular-gulp
+
+ADD $app$/package.json /tmp/application/package.json
+
+RUN cd /tmp/application && \
+    npm install && \
+    cp -a /tmp/application/node_modules /home/user/application/
+ 
+# Get permission problem when try add content of application directory to the container.
+# Seems it's is known issue: https://github.com/dotcloud/docker/issues/2158 .
+# Workaround:
+# 1. Use ADD instruction as root.
+ADD $app$ /home/user/tmp/
+# 2. Copy directory as user and launch grunt.
+CMD cp -a /home/user/tmp/. /home/user/application/ && gulp serve:app
+    
