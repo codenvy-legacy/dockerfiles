@@ -15,7 +15,7 @@ EXPOSE 9000
 CMD play run /home/user/application
 
 # ===== Usage =====
-# FROM codenvy/play1
+# FROM codenvy/jdk7_play1
 # ADD $app$ /home/user/application.zip
 # RUN unzip application.zip -d application && \
 #     rm -rf application.zip
