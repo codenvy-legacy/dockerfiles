@@ -19,7 +19,7 @@ WORKDIR /home/user
 
 EXPOSE 6080
 
-CMD tail -f supervisord.log
+CMD tail -f /home/user/supervisord.log
 
 # === Usage ===
 # ADD $app$ /home/user/application.jar
