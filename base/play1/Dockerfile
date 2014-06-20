@@ -8,11 +8,9 @@ RUN cd /home/user && \
     unzip -q play-1.2.7.zip && \
     rm play-1.2.7.zip
 
-EXPOSE 9000
-
-WORKDIR /home/user/
-
 ENV PATH $PATH:/home/user/play-1.2.7/
+
+EXPOSE 9000
 
 CMD play run /home/user/application
 
