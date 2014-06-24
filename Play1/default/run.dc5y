@@ -1,4 +1,5 @@
 FROM codenvy/jdk7_play1
 ADD $app$ /home/user/application.zip
+WORKDIR /home/user/
 RUN unzip application.zip -d application && \
     rm -rf application.zip
