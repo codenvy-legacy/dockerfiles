@@ -1,6 +1,6 @@
 {
     "id":"default",
-    "debugPort":9000,
+    "webPort":9000,
     "shellPort":4200,
     "description":"Play1 framework"
 }
