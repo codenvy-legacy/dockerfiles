@@ -8,6 +8,6 @@ if [ -z "$service" ]; then
   service="/:user:users:/home/user:/bin/bash"
 fi
 
-sudo /opt/shellinabox/shellinaboxd -b --css white-on-black.css --no-beep --service $service
+sudo /opt/shellinabox/shellinaboxd -b --user-css Normal:+white-on-black.css,Reverse:-black-on-white.css --no-beep --service $service
 
 exec "$@"
