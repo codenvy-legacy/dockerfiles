@@ -1,0 +1,46 @@
+html, body {
+  height: 99%;
+}
+
+#vt100 {
+  font-family: "Helvetica Neue", "Myriad Pro", arial, Verdana, Verdana, sans-serif;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2);  
+  font-size: 11px;
+  height: 100%;
+}
+
+#vt100 div{
+  margin-top: 2px;
+  margin-left: 5px;
+}
+
+#vt100 #cursor {
+  margin-top: -3px !important;
+}
+
+#vt100 #cursor.bright {
+  background-color: #474747 !important;
+  color: #e6e6e6;
+}
+
+#vt100 #scrollable {
+  color: #474747;
+}
+
+#vt100 #scrollable.inverted {
+  color: #474747;
+}
+
+#vt100 .ansi15 {
+  color: #000000;
+}
+
+#vt100 .bgAnsi0 {
+  background-color: #474747;
+}
+
+#vt100 #reconnect input {
+  padding: 4px !important;
+  color: #474747 !important;
+  font-size: 14px !important;
+}
