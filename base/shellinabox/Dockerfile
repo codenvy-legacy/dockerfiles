@@ -13,6 +13,9 @@ RUN mkdir /opt/shellinabox && \
     ./configure && \
     make
     
+ADD black-on-white.css /opt/shellinabox/shellinabox/black-on-white.css
+ADD white-on-black.css /opt/shellinabox/shellinabox/white-on-black.css
+
 USER user
 
 EXPOSE 4200
