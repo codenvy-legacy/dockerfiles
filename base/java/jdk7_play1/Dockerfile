@@ -9,6 +9,7 @@ RUN cd /home/user && \
     rm play-1.2.7.zip
 
 ENV PATH $PATH:/home/user/play-1.2.7/
+RUN echo "export PATH=$PATH" >> /home/user/.bashrc
 
 EXPOSE 9000
 

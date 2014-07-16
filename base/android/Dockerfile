@@ -7,7 +7,9 @@ RUN wget -qO- "http://dl.google.com/android/android-sdk_r22.6.2-linux.tgz" | tar
 
 # Other tools and resources of Android SDK
 ENV ANDROID_HOME /home/user/android-sdk-linux
+RUN echo "export ANDROID_HOME=$ANDROID_HOME" >> /home/user/.bashrc
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+RUN echo "export PATH=$PATH" >> /home/user/.bashrc
 
 RUN echo y | android update sdk --filter platform-tools,build-tools-19.0.3,android-17,sysimg-17,extra-android-support --no-ui --force && \
     echo no | android create avd -n myandroid -t android-17
