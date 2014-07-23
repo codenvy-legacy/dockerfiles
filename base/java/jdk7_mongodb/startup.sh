@@ -6,8 +6,8 @@ EXEC_JAVA=/opt/jdk1.7.0_55/bin/java
 
 function wait_mongodb_ready_to_connect {
     # Execute mongod service
-    sudo mkdir -p /opt/mongodb/db
-    sudo /usr/bin/mongod --dbpath /opt/mongodb/db --port 27017 --smallfiles --httpinterface --rest --fork --logpath $MONGO_LOG > /dev/null
+    mkdir -p /opt/mongodb/db
+    /usr/bin/mongod --dbpath /opt/mongodb/db --port 27017 --smallfiles --httpinterface --rest --fork --logpath $MONGO_LOG > /dev/null
 
     # Wait until mongo logs that it's ready (or timeout after 60s)
     COUNTER=0
