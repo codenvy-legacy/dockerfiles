@@ -17,22 +17,22 @@ function wait_mongodb_ready_to_connect {
     while [[ $? -ne 0 && $COUNTER -lt 60 ]] ; do
         sleep 2
         let COUNTER+=2
-    grep -q 'waiting for connections on port' $MONGO_LOG
+	grep -q 'waiting for connections on port' $MONGO_LOG
     done
 
     if [ $? -eq 0 ] ; then
-    execute_user_jar
+	execute_user_jar
     else
-    echo "Failed to start MongoDB. Timeout limit exceeded."
-    show_mongodb_logs
+	echo "Failed to start MongoDB. Timeout limit exceeded."
+	show_mongodb_logs
     fi
 }
 
 function execute_user_jar {
     if [ -e $JAR ] ; then
-    echo "Starting application."
+	echo "Starting application."
         $EXEC_JAVA -jar $JAR $ARGUMENTS
-    echo "Done."
+	echo "Done."
     else
         echo "Executable jar application doesn't exist."
     fi
