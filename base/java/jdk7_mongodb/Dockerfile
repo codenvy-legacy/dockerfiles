@@ -5,10 +5,10 @@ RUN sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 &
     sudo apt-get update && \
     sudo apt-get -y --no-install-recommends install adduser mongodb-org
 
-ADD startup.sh /opt/startup.sh
+ADD startup.sh /home/user/startup.sh
 
-RUN sudo chmod +x /opt/startup.sh
+RUN sudo chmod +x /home/user/startup.sh
 
 EXPOSE 27017
 
-CMD sudo /opt/startup.sh
+CMD sudo /home/user/startup.sh
