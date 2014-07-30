@@ -1,5 +1,5 @@
 {
-    "id":"default",
+    "id":"tomcat7 (default)",
     "debugPort":8000,
     "webPort":8080,
     "shellPort":4200,
