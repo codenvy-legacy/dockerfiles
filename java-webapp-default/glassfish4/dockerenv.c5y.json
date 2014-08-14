@@ -1,0 +1,7 @@
+{
+    "id":"glassfish4",
+    "debugPort":9009,
+    "webPort":8080,
+    "shellPort":4200,
+    "description":"GlassFish4 based environment for JavaEE applications."
+} 

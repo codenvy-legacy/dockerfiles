@@ -1,0 +1,7 @@
+{
+    "id":"tomee",
+    "debugPort":8000,
+    "webPort":8080,
+    "shellPort":4200,
+    "description":"Apache TomEE based environment for JavaEE applications."
+} 

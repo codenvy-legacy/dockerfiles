@@ -1,0 +1,3 @@
+FROM codenvy/jdk7_cli
+ADD $app$/ /home/user/cli
+RUN sudo chown user:users -R /home/user/cli && sudo chmod a+x /home/user/cli/codenvy
