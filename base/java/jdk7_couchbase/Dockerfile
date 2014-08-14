@@ -22,4 +22,4 @@ RUN sudo chmod +x /home/user/startup.sh
 
 EXPOSE 8091 8092 11211
 
-CMD sudo /home/user/startup.sh
+CMD sudo /home/user/startup.sh && while true;do true; done
