@@ -1,7 +1,0 @@
-{
-    "id":"jboss7",
-    "debugPort":8000,
-    "webPort":8080,
-    "shellPort":4200,
-    "description":"JBoss7 based environment for JavaEE applications."
-} 

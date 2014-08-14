@@ -1,8 +1,0 @@
-{
-    "id": "default",
-    "webPort": 5000,
-    "shellPort": 4200,
-    "description": "Gulp build system",
-    "runDockerfileName": "fast_run.dc5y",
-    "bindAppDir": "/home/user/application"
-}

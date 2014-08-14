@@ -1,6 +1,0 @@
-{
-    "id":"gui",
-    "webPort":6080,
-    "shellPort":4200,
-    "description":"JDK7+VNC"
-} 

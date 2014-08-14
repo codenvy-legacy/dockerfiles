@@ -1,6 +1,0 @@
-{
-    "id":"default",
-    "debugPort":8000,
-    "shellPort":4200,
-    "description":"JDK7"
-} 
