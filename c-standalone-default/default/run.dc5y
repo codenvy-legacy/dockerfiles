@@ -1,0 +1,3 @@
+FROM codenvy/c
+CMD make && ./a.out
+ADD $app$ /home/user/
