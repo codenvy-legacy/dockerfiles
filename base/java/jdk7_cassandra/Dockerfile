@@ -12,6 +12,6 @@ ADD startup.sh /home/user/startup.sh
 
 RUN sudo chmod +x /home/user/startup.sh
 
-EXPOSE 9160
+#EXPOSE 9160
 
 CMD sudo /home/user/startup.sh

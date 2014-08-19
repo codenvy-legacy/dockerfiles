@@ -9,6 +9,6 @@ ADD startup.sh /home/user/startup.sh
 
 RUN sudo chmod +x /home/user/startup.sh
 
-EXPOSE 27017
+#EXPOSE 27017
 
 CMD sudo /home/user/startup.sh

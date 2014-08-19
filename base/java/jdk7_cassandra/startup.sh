@@ -34,6 +34,7 @@ function execute_user_jar {
     if [ -e $JAR ] ; then
     echo "Starting application."
         $EXEC_JAVA -jar $JAR $ARGUMENTS
+        # keep docker container running after stopping of apllication
     echo "Done."
     else
         echo "Executable jar application doesn't exist."
@@ -48,3 +49,6 @@ function show_cassandra_logs {
 }
 
 wait_cassandra_ready_to_connect
+
+# keep docker container running after stopping of apllication
+while true;do true; done

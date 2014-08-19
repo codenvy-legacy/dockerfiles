@@ -21,6 +21,6 @@ ADD startup.sh /home/user/startup.sh
 
 RUN sudo chmod +x /home/user/startup.sh
 
-EXPOSE 3306
+#EXPOSE 3306
 
 CMD sudo /home/user/startup.sh

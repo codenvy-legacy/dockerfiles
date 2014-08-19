@@ -46,3 +46,6 @@ function show_mongodb_logs {
 }
 
 wait_mongodb_ready_to_connect
+
+# keep docker container running after stopping of apllication
+while true;do true; done

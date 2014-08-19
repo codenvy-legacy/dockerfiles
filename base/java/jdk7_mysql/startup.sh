@@ -13,11 +13,14 @@ if [ $? -eq 0 ] ; then
 
     if [ -e $JAR ] ; then
         echo "Starting application."
-	$EXEC_JAVA -jar $JAR $ARGUMENTS
-	echo "Done."
+        $EXEC_JAVA -jar $JAR $ARGUMENTS
+        echo "Done."
     else
-	echo "Executable jar application dosn't exist."
+        echo "Executable jar application dosn't exist."
     fi
 else
     echo "Failed to start MySQL server."
 fi
+
+# keep docker container running after stopping of apllication
+while true;do true; done

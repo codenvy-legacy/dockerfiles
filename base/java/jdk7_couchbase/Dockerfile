@@ -20,6 +20,6 @@ ADD startup.sh /home/user/startup.sh
 
 RUN sudo chmod +x /home/user/startup.sh
 
-EXPOSE 8091 8092 11211
+#EXPOSE 8091 8092 11211
 
 CMD sudo /home/user/startup.sh

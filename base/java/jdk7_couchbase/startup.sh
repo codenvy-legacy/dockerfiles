@@ -47,3 +47,6 @@ if [ $? -eq 0 ] ; then
 else
     echo "Failed to start Couchbase server."
 fi
+
+# keep docker container running after stopping of apllication
+while true;do true; done
