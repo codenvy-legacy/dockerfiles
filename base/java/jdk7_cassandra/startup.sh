@@ -34,7 +34,6 @@ function execute_user_jar {
     if [ -e $JAR ] ; then
     echo "Starting application."
         $EXEC_JAVA -jar $JAR $ARGUMENTS
-        # keep docker container running after stopping of apllication
     echo "Done."
     else
         echo "Executable jar application doesn't exist."
