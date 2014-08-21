@@ -22,17 +22,18 @@ if [ $? -eq 0 ] ; then
     untilsuccessful /opt/couchbase/bin/couchbase-cli cluster-init -c 127.0.0.1:8091 \
     --cluster-init-username=Administrator \
     --cluster-init-password=password \
-    --cluster-init-ramsize=256 &>/dev/null
+    --cluster-init-ramsize=512 &>/dev/null
 
     echo "Cluster inited with username 'Administrator' and password 'password'."
 
     untilsuccessful /opt/couchbase/bin/couchbase-cli bucket-create -c 127.0.0.1:8091 \
-    --bucket=default \
-    --bucket-type=couchbase \
-    --bucket-ramsize=128 \
-    -u Administrator \
-    -p password \
-    --wait &>/dev/null
+       --bucket=test_bucket \
+       --bucket-type=couchbase \
+       --bucket-ramsize=256 \
+       --bucket-port=11222 \
+       --wait \
+       -u Administrator \
+       -p password &>/dev/null
 
     echo "Default bucket created."
 
