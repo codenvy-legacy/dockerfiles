@@ -1,0 +1,6 @@
+{
+    "id":"php56_apache2",
+    "webPort":80,
+    "shellPort":4200,
+    "description":"PHP5.6+Apache2"
+}
