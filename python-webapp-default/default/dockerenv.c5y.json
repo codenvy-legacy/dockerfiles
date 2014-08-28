@@ -1,0 +1,6 @@
+{
+    "id":"default",
+    "debugPort":8080,
+    "shellPort":4200,
+    "description":"Python2.7"
+} 
