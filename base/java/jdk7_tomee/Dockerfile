@@ -1,7 +1,7 @@
 FROM codenvy/jdk7
 
 RUN mkdir /home/user/tomee && \
-    wget -qO- "http://apache.rediris.es/openejb/openejb-4.5.1/apache-tomee-1.5.1-webprofile.tar.gz" | tar -zx --strip-components=1 -C /home/user/tomee/ && \
+    wget -qO- "http://apache.volia.net/tomee/tomee-1.7.0/apache-tomee-1.7.0-webprofile.tar.gz" | tar -zx --strip-components=1 -C /home/user/tomee/ && \
     rm -rf /home/user/tomee/webapps/*
      
 EXPOSE 8080
