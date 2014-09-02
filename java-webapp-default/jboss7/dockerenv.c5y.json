@@ -3,5 +3,6 @@
     "debugPort":8000,
     "webPort":8080,
     "shellPort":4200,
-    "description":"JBoss7 based environment for JavaEE applications."
+    "description":"JBoss7 based environment for JavaEE applications.",
+    "displayName":"JDK 7u55, JBoss 7.1.1 preinstalled."
 } 
