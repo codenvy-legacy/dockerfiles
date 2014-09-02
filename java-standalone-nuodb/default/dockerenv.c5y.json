@@ -2,5 +2,6 @@
     "id":"default",
     "debugPort":8000,
     "shellPort":4200,
-    "description":"JDK7+Neo4j"
+    "description":"JDK7+Neo4j",
+    "displayName":"JDK 7u55, NuoDB 2.0.4 preinstalled."
 } 

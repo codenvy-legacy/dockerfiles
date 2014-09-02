@@ -2,5 +2,6 @@
     "id":"default",
     "debugPort":8000,
     "shellPort":4200,
-    "description":"JDK7+Neo4j"
+    "description":"JDK7+Neo4j",
+    "displayName":"JDK 7u55, Neo4j 2.1.3 preisntalled."
 } 
