@@ -1,0 +1,5 @@
+FROM codenvy/ruby212
+
+ADD $app$/ /home/user
+
+CMD ruby2.1 /home/user/main.rb

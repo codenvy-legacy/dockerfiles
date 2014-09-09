@@ -1,0 +1,7 @@
+{
+    "id":"ruby212",
+    "debugPort":8080,
+    "shellPort":4200,
+    "description":"Ruby2.1.2",
+    "displayName":"Ruby 2.1.2 preinstalled."
+} 
