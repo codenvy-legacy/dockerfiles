@@ -2,6 +2,6 @@
     "id":"default",
     "debugPort":8000,
     "shellPort":4200,
-    "description":"C/C++ and Qt4",
+    "description":"C/C++ with Qt4",
     "displayName":"Qt preinstalled."
 }
