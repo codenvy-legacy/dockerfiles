@@ -1,0 +1,6 @@
+{
+    "id":"ruby210",
+    "shellPort":4200,
+    "description":"Ruby2.1.0",
+    "displayName":"Ruby 2.1.0 preinstalled."
+} 
