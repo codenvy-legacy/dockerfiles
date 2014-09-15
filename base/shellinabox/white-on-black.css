@@ -38,3 +38,26 @@
   color: #474747 !important;
   font-size: 14px !important;
 }
+
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    min-height: 28px;
+    padding-top: 100px;
+    background-clip: padding-box;
+    background-color: rgba(178, 178, 178, 0.2);
+    -webkit-box-shadow: inset 1px 1px 0 rgba(178, 178, 178, 0.1), inset 0 -1px 0 rgba(178, 178, 178, 0.07);
+}
+
+::-webkit-scrollbar-button {
+    height: 0;
+    width: 0;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
