@@ -21,11 +21,11 @@
 
 #vt100 #scrollable {
   color: #e6e6e6;
-  background-color: #474747;
+  background-color: black;
 }
 
 #vt100 #scrollable.inverted {
-  color: #474747;
+  color: black;
   background-color: #e6e6e6;
 }
 
@@ -39,6 +39,9 @@
   font-size: 14px !important;
 }
 
+body {
+  background-color: black;
+}
 
 ::-webkit-scrollbar {
     width: 12px;
