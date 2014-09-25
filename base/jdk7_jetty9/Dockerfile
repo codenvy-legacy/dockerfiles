@@ -1,8 +1,8 @@
 FROM codenvy/jdk7
 
 RUN mkdir /home/user/jetty9 && \
-    wget -qO- "http://ftp.acc.umu.se/mirror/eclipse.org/jetty/9.2.0.v20140526/dist/jetty-distribution-9.2.0.v20140526.tar.gz" | tar -zx --strip-components=1 -C /home/user/jetty9/
-ADD jetty-logging.xml /home/user/jetty9/etc/jetty-logging.xml     
+    wget -qO- "http://ftp.acc.umu.se/mirror/eclipse.org/jetty/9.2.2.v20140723/dist/jetty-distribution-9.2.2.v20140723.tar.gz" | tar -zx --strip-components=1 -C /home/user/jetty9/
+ADD jetty-logging.xml /home/user/jetty9/etc/jetty-logging.xml
 EXPOSE 8080
 
 WORKDIR /home/user/jetty9
