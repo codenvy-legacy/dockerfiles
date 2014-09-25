@@ -3,5 +3,5 @@
     "debugPort":8000,
     "shellPort":4200,
     "description":"JDK7+Riak",
-    "displayName":"JDK 7u55, Riak DB 1.4.10 preinstalled."
+    "displayName":"JDK 7u55, Riak DB 1.4.10"
 } 

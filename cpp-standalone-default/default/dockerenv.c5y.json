@@ -3,5 +3,5 @@
     "debugPort":8000,
     "shellPort":4200,
     "description":"C/C++",
-    "displayName":"G++ preinstalled."
+    "displayName":"G++"
 }

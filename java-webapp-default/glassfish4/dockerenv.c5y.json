@@ -4,5 +4,5 @@
     "webPort":8080,
     "shellPort":4200,
     "description":"GlassFish4 based environment for JavaEE applications.",
-    "displayName":"JDK 7u55, GlassFish 4.0 preinstalled."
+    "displayName":"JDK 7u55, GlassFish 4.0"
 } 

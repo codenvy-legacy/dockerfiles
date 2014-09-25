@@ -5,5 +5,5 @@
     "description": "Gulp build system",
     "runDockerfileName": "fast_run.dc5y",
     "bindAppDir": "/home/user/application",
-    "displayName": "Node.js 0.10.31, Gulp 3.8.7, Angular 1.2.23 preinstalled."
+    "displayName": "Node.js 0.10.31, Gulp 3.8.7, Angular 1.2.23"
 }
