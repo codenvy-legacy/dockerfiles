@@ -15,5 +15,5 @@ CMD sudo chmod a+rw /home/user/application/ && \
     cp -a /tmp/application/node_modules /home/user/application/ && \
     sudo chmod a+rw -R /home/user/application/ && \
     umask 0 && \
-    grunt server
+    grunt $taskName:-server$
     
