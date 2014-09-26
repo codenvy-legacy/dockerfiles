@@ -4,5 +4,5 @@
     "webPort":8080,
     "shellPort":4200,
     "description":"Tomcat7 based environment for Java web-applications.",
-    "displayName":"Default Environment (JDK 7u55, Tomcat 7.0.53)"
+    "displayName":"Default Environment (Tomcat 7)"
 } 
