@@ -10,6 +10,4 @@ RUN sudo chown -R user:user . && \
      /bin/bash -l -c "bundle install" && \
     chmod +x bin/*
 
-EXPOSE 3000
-
 CMD bin/rails server

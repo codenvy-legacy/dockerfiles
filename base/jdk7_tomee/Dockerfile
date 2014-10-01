@@ -5,6 +5,7 @@ RUN mkdir /home/user/tomee && \
     rm -rf /home/user/tomee/webapps/*
      
 EXPOSE 8080
+ENV CODENVY_APP_PORT_8080_HTTP 8080
 
 WORKDIR /home/user/tomee/bin
 
@@ -16,5 +17,6 @@ CMD ./catalina.sh run
 # ===== OR (debug) =====
 # FROM codenvy/jdk7_tomee
 # EXPOSE 8000
+# ENV CODENVY_APP_PORT_8000_DEBUG 8000
 # CMD ./catalina.sh jpda run
 # ADD $app$ /home/user/tomee/webapps/ROOT.war

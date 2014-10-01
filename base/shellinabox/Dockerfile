@@ -20,6 +20,8 @@ USER user
 
 EXPOSE 4200
 
+ENV CODENVY_WEB_SHELL_PORT 4200
+
 ADD entrypoint.sh /entrypoint.sh    
 RUN sudo chmod 755 /entrypoint.sh
 

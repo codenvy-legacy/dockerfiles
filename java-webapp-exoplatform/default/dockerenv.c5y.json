@@ -1,7 +1,0 @@
-{
-    "id":"default",
-    "debugPort":8000,
-    "shellPort":4200,
-    "description":"eXo portlet example",
-    "displayName":"JDK 7u55, eXo Platform Community 4.0.5"
-}

@@ -12,6 +12,7 @@ ENV PATH $PATH:/home/user/play-1.2.7/
 RUN echo "export PATH=$PATH" >> /home/user/.bashrc
 
 EXPOSE 9000
+ENV CODENVY_APP_PORT_9000_HTTP 9000
 
 CMD play run /home/user/application
 

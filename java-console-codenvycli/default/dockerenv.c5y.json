@@ -1,7 +1,0 @@
-{
-    "id":"default",
-    "debugPort":8000,
-    "shellPort":4200,
-    "description":"Codenvy CLI",
-    "displayName":"JDK 7u55, x11vnc 0.9.13"
-}

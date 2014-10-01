@@ -1,9 +1,0 @@
-{
-    "id": "default",
-    "webPort": 9000,
-    "shellPort": 4200,
-    "description": "Yeoman environment that includes Bower and Grunt.",
-    "runDockerfileName": "fast_run.dc5y",
-    "bindAppDir": "/home/user/application",
-    "displayName": "Node.js 0.10.31, Grunt 0.4.5, AngularJS 1.2.23"
-}

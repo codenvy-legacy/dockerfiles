@@ -1,7 +1,0 @@
-{
-    "id":"default",
-    "debugPort":8000,
-    "shellPort":4200,
-    "description":"JDK7+MySQL",
-    "displayName":"JDK 7u55, MySQL 5.5.37"
-} 

@@ -19,6 +19,8 @@ WORKDIR /home/user
 
 EXPOSE 6080
 
+ENV CODENVY_APP_PORT_6080_HTTP 6080
+
 CMD tail -f /home/user/supervisord.log
 
 # === Usage ===

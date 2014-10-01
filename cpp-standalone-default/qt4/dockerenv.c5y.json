@@ -1,7 +1,0 @@
-{
-    "id":"qt4",
-    "debugPort":8000,
-    "shellPort":4200,
-    "description":"C/C++ with Qt4",
-    "displayName":"Qt4"
-}

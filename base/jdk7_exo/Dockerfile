@@ -8,5 +8,8 @@ RUN wget -q http://sourceforge.net/projects/exo/files/Platform4.0/eXo-Platform-c
 # Install eXo as a service
 RUN echo -e "case \$1 in\nstart)\n  sh /home/user/exo/platform-community-4.0.5/start_eXo.sh -b\n  ;;\nstop)\n  sh /home/user/exo/platform-community-4.0.5/stop_eXo.sh\n  ;;\nesac\nexit 0\n" | sudo tee /etc/init.d/exo && \
     sudo chmod 755 /etc/init.d/exo
+
 EXPOSE 8080
+ENV CODENVY_APP_PORT_8080_HTTP 8080
+
 CMD /home/user/exo/platform-community-4.0.5/start_eXo.sh

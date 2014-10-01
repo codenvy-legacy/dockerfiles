@@ -1,7 +1,0 @@
-{
-    "id":"default",
-    "webPort":9000,
-    "shellPort":4200,
-    "description":"Play1 framework",
-    "displayName":"JDK 7u55, Play 1.2.7"
-}

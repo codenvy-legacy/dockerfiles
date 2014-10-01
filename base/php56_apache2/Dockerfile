@@ -12,6 +12,7 @@ RUN sudo apt-get update && \
     echo "ServerName localhost" | sudo tee -a /etc/apache2/apache2.conf
 
 EXPOSE 80
+ENV CODENVY_APP_PORT_80_HTTP 80
 
 CMD sudo chown -R www-data:www-data $SITE_DIR/ && \
     sudo chmod -R 777 $SITE_DIR && \
