@@ -1,6 +1,0 @@
-FROM codenvy/jdk7_glassfish4
-EXPOSE 9009
-ADD $app$ /home/user/$app$
-CMD ./asadmin start-domain --debug && \
-    ./asadmin deploy --contextroot "/" /home/user/$app$ && \
-    tail -f /home/user/glassfish4/glassfish/domains/domain1/logs/server.log

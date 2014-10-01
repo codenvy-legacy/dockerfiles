@@ -1,4 +1,0 @@
-FROM codenvy/jdk7_tomcat7
-EXPOSE 8000
-CMD ./catalina.sh jpda run
-ADD $app$ /home/user/tomcat7/webapps/ROOT.war

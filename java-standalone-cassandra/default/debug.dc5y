@@ -1,4 +1,0 @@
-FROM codenvy/jdk7_cassandra
-ADD $app$ /home/user/$app$
-RUN unzip -q /home/user/$app$ -d /home/user
-ENV ARGUMENTS "-Xdebug -agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n $args$"
