@@ -1,5 +1,5 @@
 #
-# This script builds and pushes all the docker files
+# This script builds all the docker files
 #
 
 function check_status {
@@ -8,6 +8,7 @@ function check_status {
   fi
 }
 
+# need keep order!!!
 dockerfiles=(
   "shellinabox"
   "jdk7"
@@ -44,11 +45,9 @@ echo "Building ${#dockerfiles[*]} dockerfiles..."
 
 for dockerfile in ${dockerfiles[*]}
 do
-#  echo "dockerfile: codenvy/"$dockerfile
   cd $dockerfile; check_status
   pwd
-  sudo docker build -t codenvy/$dockerfile .; check_status
-  sudo docker push codenvy/$dockerfile; check_status
+  docker build -t codenvy/$dockerfile .; check_status
   cd ..; check_status
 done
 
