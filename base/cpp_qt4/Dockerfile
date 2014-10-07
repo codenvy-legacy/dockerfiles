@@ -16,6 +16,8 @@ RUN sudo sed -i '/exec "$@"/i/usr/bin/supervisord -c /opt/supervisord.conf\n' /e
 
 WORKDIR /home/user
 
+ENV CODENVY_APP_PORT_6080_HTTP 6080
+
 EXPOSE 6080
 
 CMD tail -f /home/user/supervisord.log
