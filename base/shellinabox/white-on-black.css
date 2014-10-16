@@ -25,8 +25,8 @@
 }
 
 #vt100 #scrollable.inverted {
-  color: black;
-  background-color: #e6e6e6;
+  color: #e6e6e6;
+  background-color: black;
 }
 
 #vt100 .bgAnsi0 {
