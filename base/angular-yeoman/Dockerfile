@@ -5,7 +5,7 @@ RUN sudo apt-get update && \
     sudo apt-get install -y python git ruby-full rubygems npm && \
     sudo ln -sf /usr/bin/nodejs /usr/bin/node && \
     sudo gem install sass compass && \
-    sudo npm install -g yo generator-angular
+    sudo npm install -g yo generator-angular grunt-cli bower
 
 ENV HOME /home/user 
 
