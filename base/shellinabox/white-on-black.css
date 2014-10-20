@@ -30,7 +30,7 @@
 }
 
 #vt100 .bgAnsi0 {
-  background-color: #ffffff;
+  background-color: black;
 }
 
 #vt100 #reconnect input {

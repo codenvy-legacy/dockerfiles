@@ -47,7 +47,14 @@ for dockerfile in ${dockerfiles[*]}
 do
   cd $dockerfile; check_status
   pwd
-  docker build -t codenvy/$dockerfile .; check_status
+#  docker build -t codenvy/$dockerfile .; check_status
+
+  docker build -t codenvy/$dockerfile .
+  if [ "$?" != "0" ]; then
+    echo; echo "Unable to build dockerfile $dockerfile"
+    exit $?
+  fi
+
   cd ..; check_status
 done
 
