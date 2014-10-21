@@ -1,13 +1,21 @@
 FROM codenvy/ruby210_rails403
 
-RUN sudo mkdir -p /home/user/app
+RUN mkdir /tmp/application
+RUN mkdir /home/user/application
 
-ADD $app$/ /home/user/app
+VOLUME ["/home/user/application"]
 
-WORKDIR /home/user/app
+ADD $app$/Gemfile /tmp/application/Gemfile
 
-RUN sudo chown -R user:user . && \
-     /bin/bash -l -c "bundle install" && \
-    chmod +x bin/*
+RUN cd /tmp/application && /bin/bash -l -c "bundle install"
 
-CMD bin/rails server
+# 1. Update permissions recursively
+# 2. Make newly created files accessible for anyone
+# 3. Copy Gemfile.lock to the application folder
+# 4. Make file in bin directory executable
+# 5. Start application
+CMD sudo chmod a+rw -R /home/user/application/ && \
+    umask 0 && \
+    cp /tmp/application/Gemfile.lock /home/user/application/ && \
+    sudo chmod +x /home/user/application/bin/* && \
+    /home/user/application/bin/rails server
