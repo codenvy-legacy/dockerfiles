@@ -1,6 +1,6 @@
 FROM codenvy/python27
 
-RUN wget -qO- "https://storage.googleapis.com/appengine-sdks/featured/google_appengine_1.9.9.zip" -O /tmp/gae-sdk.zip && \
+RUN wget -qO- "https://storage.googleapis.com/appengine-sdks/featured/google_appengine_1.9.13.zip" -O /tmp/gae-sdk.zip && \
     unzip -qq /tmp/gae-sdk.zip -d /home/user && \
     rm /tmp/gae-sdk.zip
 
