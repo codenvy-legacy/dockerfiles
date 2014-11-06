@@ -38,6 +38,7 @@ dockerfiles=(
   "python34"
   "ruby210"
   "ruby210_rails403"
+  "go"
 )
 
 echo "Building ${#dockerfiles[*]} dockerfiles..."
