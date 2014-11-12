@@ -12,5 +12,5 @@ VOLUME ["/home/user/application"]
 CMD mv /home/user/application/codenvy-cli-*/* /home/user/application/ && \
     rm -R /home/user/application/codenvy-cli-* && \
     chmod +x /home/user/application/bin/* && \
-    echo "/home/user/application/bin/interactive-mode" >> /home/user/.bashrc && \
+    echo "/home/user/application/bin/codenvy" >> /home/user/.bashrc && \
     while true;do true; done
