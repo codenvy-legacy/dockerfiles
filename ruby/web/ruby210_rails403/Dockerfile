@@ -1,7 +1,6 @@
 FROM codenvy/ruby210_rails403
 
-RUN mkdir /tmp/application
-RUN mkdir /home/user/application
+RUN mkdir /tmp/application /home/user/application
 
 VOLUME ["/home/user/application"]
 

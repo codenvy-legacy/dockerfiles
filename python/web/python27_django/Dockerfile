@@ -3,8 +3,7 @@ FROM codenvy/python27
 EXPOSE 8000
 ENV CODENVY_APP_PORT_8000_HTTP 8000
 
-RUN mkdir /tmp/application
-RUN mkdir /home/user/application
+RUN mkdir /tmp/application /home/user/application
 
 VOLUME ["/home/user/application"]
 
