@@ -7,8 +7,7 @@ RUN wget -qO- "https://storage.googleapis.com/appengine-sdks/deprecated/1914/goo
 EXPOSE 8080
 ENV CODENVY_APP_PORT_8080_HTTP 8080
 
-RUN mkdir /tmp/application
-RUN mkdir /home/user/application
+RUN mkdir /tmp/application /home/user/application
 
 VOLUME ["/home/user/application"]
 

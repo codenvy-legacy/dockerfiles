@@ -1,7 +1,7 @@
-FROM codenvy/python34
+FROM codenvy/python27
 
-EXPOSE 8080
-ENV CODENVY_APP_PORT_8080_HTTP 8080
+EXPOSE 8000
+ENV CODENVY_APP_PORT_8000_HTTP 8000
 
 RUN mkdir /tmp/application /home/user/application
 
@@ -18,4 +18,4 @@ RUN cd /tmp/application && \
 # 3. Start application
 CMD sudo chmod a+rw -R /home/user/application/ && \
     umask 0 && \
-    /env/bin/python /home/user/application/$executable:-main.py$
+    /env/bin/python /home/user/application/$executable:-manage.py$ runserver 0.0.0.0:8000 2>&1
