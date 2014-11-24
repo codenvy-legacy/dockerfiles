@@ -26,6 +26,7 @@ dockerfiles=(
   "jdk7_nuodb"
   "jdk7_play1"
   "jdk7_postgresql"
+  "jdk7_resin"
   "jdk7_riak"
   "jdk7_tomcat7"
   "jdk7_tomee"
