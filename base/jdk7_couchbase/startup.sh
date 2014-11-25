@@ -49,4 +49,4 @@ else
 fi
 
 # keep docker container running after stopping of apllication
-while true;do true; done
+sleep 365d

@@ -50,4 +50,4 @@ function show_cassandra_logs {
 wait_cassandra_ready_to_connect
 
 # keep docker container running after stopping of apllication
-while true;do true; done
+sleep 365d
