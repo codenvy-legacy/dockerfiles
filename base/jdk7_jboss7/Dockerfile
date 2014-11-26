@@ -6,8 +6,9 @@ RUN mkdir /home/user/jboss7 && \
     "http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.tar.gz" | tar -zx --strip-components=1 -C /home/user/jboss7/
 RUN cd /home/user/jboss7/standalone/configuration/ && \
     sed -i 's/enable-welcome-root="true"/enable-welcome-root="false"/g' standalone.xml && \
-    sed -i 's/127.0.0.1/0.0.0.0/g' standalone.xml
-    
+    sed -i 's/127.0.0.1/0.0.0.0/g' standalone.xml && \
+    sed -i 's/<deployment-scanner/<deployment-scanner auto-deploy-exploded="true"/g' standalone.xml
+
 EXPOSE 8080
 ENV CODENVY_APP_PORT_8080_HTTP 8080
 
