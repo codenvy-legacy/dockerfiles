@@ -5,6 +5,7 @@ RUN wget -P /home/user/ -q https://storage.googleapis.com/appengine-sdks/depreca
     mkdir /home/user/app
 ENV CODENVY_APP_PORT_8080_HTTP 8080
 EXPOSE 8080
+WORKDIR /home/user/appengine-java-sdk-1.9.14/bin
 
 # === Usage ===
 # FROM codenvy/jdk7_gae1914
