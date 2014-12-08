@@ -1,7 +1,7 @@
 FROM codenvy/jdk7
-RUN wget -P /home/user/ -q https://storage.googleapis.com/appengine-sdks/deprecated/1914/appengine-java-sdk-1.9.14.zip && \
-    unzip /home/user/appengine-java-sdk-1.9.14.zip && \
-    rm /home/user/appengine-java-sdk-1.9.14.zip && \
+RUN cd /home/user/ && wget -q https://storage.googleapis.com/appengine-sdks/deprecated/1914/appengine-java-sdk-1.9.14.zip && \
+    unzip appengine-java-sdk-1.9.14.zip && \
+    rm appengine-java-sdk-1.9.14.zip && \
     mkdir /home/user/app
 ENV CODENVY_APP_PORT_8080_HTTP 8080
 EXPOSE 8080
