@@ -5,5 +5,4 @@ RUN wget -qO- "https://storage.googleapis.com/appengine-sdks/deprecated/1914/goo
 EXPOSE 8080
 ENV CODENVY_APP_PORT_8080_HTTP 8080
 RUN mkdir /home/user/app
-ADD $app$ /home/user/app/
 CMD /home/user/google_appengine/dev_appserver.py 2>&1 --host 0.0.0.0 --skip_sdk_update_check true /home/user/app
