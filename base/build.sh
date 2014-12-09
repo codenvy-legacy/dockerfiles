@@ -40,6 +40,7 @@ dockerfiles=(
   "php56_apache2"
   "python27"
   "python27_gae1914"
+  "php56_gae1914"
   "python34"
   "ruby210"
   "ruby210_rails403"
