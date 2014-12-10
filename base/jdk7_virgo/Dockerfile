@@ -21,5 +21,5 @@ CMD ./startup.sh
 # FROM codenvy/jdk7_virgo
 # EXPOSE 8000
 # ENV CODENVY_APP_PORT_8000_DEBUG 8000
-# CMD ./startup.sh
+# CMD ./startup.sh -debug
 # ADD $app$ /home/user/virgo/pickup/ROOT.war
