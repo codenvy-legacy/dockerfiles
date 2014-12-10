@@ -30,6 +30,7 @@ dockerfiles=(
   "jdk7_riak"
   "jdk7_tomcat7"
   "jdk7_tomee"
+  "jdk7_virgo"
   "android422"
   "android431"
   "android442"
