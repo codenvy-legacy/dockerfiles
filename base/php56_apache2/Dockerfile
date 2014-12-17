@@ -8,9 +8,8 @@ ENV SITE_DIR /var/www/html
 
 RUN sudo apt-get update && \
     sudo apt-get -y install apache2 php5 php-pear php5-mysql && \
+    sudo rm -R $SITE_DIR/*
     echo "ServerName localhost" | sudo tee -a /etc/apache2/apache2.conf
-
-RUN sudo rm -rf /var/www/html/index.html
 
 # expose and listen to 80 port
 EXPOSE 80
