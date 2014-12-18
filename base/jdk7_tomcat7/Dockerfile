@@ -9,7 +9,7 @@ ENV CODENVY_APP_PORT_8080_HTTP 8080
 
 WORKDIR /home/user/tomcat7/bin
 
-CMD ./catalina.sh run
+CMD ./catalina.sh run 2>&1
 
 # ===== Usage =====
 # FROM codenvy/jdk7_tomcat7
