@@ -9,7 +9,7 @@ ENV CODENVY_APP_PORT_8080_HTTP 8080
 
 WORKDIR /home/user/jetty9
 
-CMD java -jar start.jar
+CMD java -jar start.jar 2>&1
 
 # ===== Usage =====
 # FROM codenvy/jdk7_jetty9
