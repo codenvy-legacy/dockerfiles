@@ -11,6 +11,7 @@ function check_status {
 # need keep order!!!
 dockerfiles=(
   "shellinabox"
+  "javascript_html"
   "jdk7"
   "jdk7_cassandra"
   "jdk7_vnc"
