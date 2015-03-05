@@ -1,4 +1,4 @@
 {
-    "description":"Python2.7+GoogleAppEngineSDK1.9.14. This environment supports 3rd party libs, specified in requirements.txt. Docker image will fail if you don't have this file in your project",
-    "displayName":"Python 2.7.8, Google App Engine SDK 1.9.14"
+    "description":"Python 2.7.8 and Google App Engine SDK 1.9.14. This environment supports 3rd party libs, specified in requirements.txt. Docker image will fail if you don't have this file in your project",
+    "displayName":"Python 2.7 + Google App Engine with 3rd party libs"
 } 
