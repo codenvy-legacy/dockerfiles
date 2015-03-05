@@ -1,4 +1,4 @@
 {
-    "description":"JDK7+Neo4j",
-    "displayName":"JDK 7u55, Neo4j 2.1.3"
+    "description":"Neo4j 2.1.3, JDK 1.7.0_55",
+    "displayName":"Neo4j 2.1 + Java 7"
 } 

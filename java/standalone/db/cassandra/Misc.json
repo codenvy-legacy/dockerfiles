@@ -1,4 +1,4 @@
 {
-    "description":"JDK7+Cassandra",
-    "displayName":"JDK 7u55, Cassandra DB 2.0.9"
+    "description":"Cassandra 2.0.9, JDK 1.7.0_55",
+    "displayName":"Cassandra DB 2.0 + Java 7"
 } 

@@ -1,4 +1,4 @@
 {
-    "description":"Android v4.2.2 API Level 17, VNC",
-    "displayName":"JDK 7u55, x11vnc 0.9.13, Android SDK 23.0.2 API 17"
+    "description":"Android 4.2.2 SDK 23.0.2 API 17, x11vnc 0.9.13, JDK 1.7.0_55",
+    "displayName":"Android 4.2.2 API 17 + Java 7 + VNC"
 }

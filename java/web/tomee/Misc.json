@@ -1,4 +1,4 @@
 {
-    "description":"Apache TomEE based environment for JavaEE applications.",
-    "displayName":"JDK 7u55, TomEE 1.5.1"
+    "description":"TomEE 1.5.1, JDK 1.7.0_55",
+    "displayName":"TomEE 1.5 + Java 7"
 } 

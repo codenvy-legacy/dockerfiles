@@ -1,4 +1,4 @@
 {
-    "description":"JDK7+VNC",
-    "displayName":"JDK 7u55, x11vnc 0.9.13"
+    "description":"x11vnc 0.9.13, JDK 1.7.0_55",
+    "displayName":"Java 7 + VNC"
 } 
