@@ -1,4 +1,4 @@
 {
-    "description":"Python 2.7 associated to Google App Engine SDK 1.9.14",
+    "description":"Python 2.7, Google App Engine SDK 1.9.14, Debian Jessie",
     "displayName":"Python 2.7 + Google App Engine"
 } 
