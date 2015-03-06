@@ -1,4 +1,4 @@
 {
-    "description":"Tomcat7 based environment for Java web-applications.",
-    "displayName":"JDK 7u55, Tomcat 7.0.53"
+    "description":"Tomcat 7.0.53, JDK 1.7.0_55, Debian Jessie",
+    "displayName":"Tomcat 7 + Java 7"
 } 

@@ -1,4 +1,5 @@
 {
-    "description":"Android v4.3.1 API Level 18, VNC",
-    "displayName":"JDK 7u55, x11vnc 0.9.13, Android SDK 23.0.2 API 18"
+    "description":"Android 4.3.1 SDK 23.0.2 API 18, x11vnc 0.9.13, JDK 1.7.0_55, Debian Jessie",
+    "displayName":"Android 4.3.1 API 18 + Java 7 + VNC"
 }
+

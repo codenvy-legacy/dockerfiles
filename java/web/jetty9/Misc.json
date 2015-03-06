@@ -1,4 +1,4 @@
 {
-    "description":"Jetty9 based environment for Java web-applications.",
-    "displayName":"JDK 7u55, Jetty 9.2.0"
+    "description":"Jetty 9.2.0, JDK 1.7.0_55, Debian Jessie",
+    "displayName":"Jetty 9.2 + Java 7"
 } 

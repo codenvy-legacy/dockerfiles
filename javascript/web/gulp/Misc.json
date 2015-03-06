@@ -1,4 +1,4 @@
 {
-    "description": "Gulp build system",
-    "displayName": "Node.js 0.10.31, Gulp 3.8.7, Angular 1.2.23"
+    "description": "Gulp 3.8.7, Angular 1.2.23, Node.js 0.10.31, Debian Jessie",
+    "displayName": "Gulp 3.8 + Angular 1.2 + Node.js 0.10"
 }

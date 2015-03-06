@@ -1,4 +1,4 @@
 {
-    "description":"Ruby2.1.0+Rails4.0.3",
-    "displayName":"Ruby 2.1.0, Rails 4.0.3"
+    "description":"Ruby 2.1.0, Rails 4.0.3, Debian Jessie",
+    "displayName":"Ruby 2.1 + Rails 4.0"
 } 
