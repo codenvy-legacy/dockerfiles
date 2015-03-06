@@ -1,4 +1,4 @@
 {
-    "description":"Codenvy CLI",
-    "displayName":"JDK 7u55"
+    "description":"Codenvy CLI, JDK 1.7.0_55, Debian Jessie",
+    "displayName":"Java 7 (Codenvy CLI)"
 }

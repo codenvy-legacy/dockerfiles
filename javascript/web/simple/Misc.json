@@ -1,4 +1,4 @@
 {
-    "description": "Simple Debian based, Apache powered environment to preview HTML/Javascript projects",
-    "displayName": "Debian Jessie, Apache2"
+    "description": "Apache 2, Debian Jessie",
+    "displayName": "Apache 2"
 }
