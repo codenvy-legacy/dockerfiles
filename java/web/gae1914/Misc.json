@@ -1,4 +1,4 @@
 {
-    "description":"JAVA GAE SDK 1.9.14. Application is launched with ./dev_appserver.sh command",
-    "displayName":"JDK 7u55, JAVA GAE SDK 1.9.14"
+    "description":"JAVA GAE SDK 1.9.14. Application is launched with ./dev_appserver.sh command, JDK 1.7.0_55, Debian Jessie",
+    "displayName":"Google App Engine + Java 7"
 } 
