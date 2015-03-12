@@ -1,7 +1,7 @@
 FROM codenvy/jdk7
 
 RUN mkdir /home/user/jetty9 && \
-    wget -qO- "http://ftp.acc.umu.se/mirror/eclipse.org/jetty/9.2.4.v20141103/dist/jetty-distribution-9.2.4.v20141103.tar.gz" | tar -zx --strip-components=1 -C /home/user/jetty9/
+    wget -qO- "http://ftp.acc.umu.se/mirror/eclipse.org/jetty/stable-9/dist/jetty-distribution-9.2.9.v20150224.tar.gz" | tar -zx --strip-components=1 -C /home/user/jetty9/
 ADD jetty-logging.xml /home/user/jetty9/etc/jetty-logging.xml
 
 EXPOSE 8080
