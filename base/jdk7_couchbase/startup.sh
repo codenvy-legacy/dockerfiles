@@ -19,27 +19,25 @@ service couchbase-server start &>/dev/null
 if [ $? -eq 0 ] ; then
     echo "Couchbase server started."
 
-    untilsuccessful /opt/couchbase/bin/couchbase-cli cluster-init -c 127.0.0.1:8091 \
+     untilsuccessful /opt/couchbase/bin/couchbase-cli cluster-init -c 127.0.0.1:8091 -u=Administrator -p=password \
     --cluster-init-username=Administrator \
     --cluster-init-password=password \
     --cluster-init-ramsize=512 &>/dev/null
 
     echo "Cluster inited with username 'Administrator' and password 'password'."
 
-    untilsuccessful /opt/couchbase/bin/couchbase-cli bucket-create -c 127.0.0.1:8091 \
-       --bucket=test_bucket \
-       --bucket-type=couchbase \
-       --bucket-ramsize=256 \
-       --bucket-port=11222 \
-       --wait \
-       -u Administrator \
-       -p password &>/dev/null
+    untilsuccessful /opt/couchbase/bin/couchbase-cli bucket-create -c 127.0.0.1:8091 --user=Administrator --password=password \
+    --bucket=test_bucket \
+    --bucket-type=couchbase \
+    --bucket-ramsize=256 \
+    --bucket-port=11222 \
+    --wait &>/dev/null
 
     echo "Default bucket created."
 
     if [ -e $JAR ] ; then
     echo "Starting application."
-    $EXEC_JAVA -jar $JAR $ARGUMENTS
+    $EXEC_JAVA -jar $JAR $ARGUMENTS 2>&1
     echo "Done."
     else
     echo "Executable jar application dosn't exist."
