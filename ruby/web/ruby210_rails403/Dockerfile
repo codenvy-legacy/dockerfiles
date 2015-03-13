@@ -6,7 +6,8 @@ VOLUME ["/home/user/application"]
 
 ADD $app$/Gemfile /tmp/application/Gemfile
 
-RUN cd /tmp/application && /bin/bash -l -c "bundle install"
+RUN cd /tmp/application && /bin/bash -l -c "bundle install" && \
+    echo 'source /etc/profile.d/rvm.sh' >> /home/user/.bashrc
 
 # 1. Update permissions recursively
 # 2. Make newly created files accessible for anyone
