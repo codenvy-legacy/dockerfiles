@@ -1,4 +1,4 @@
 {
-    "description":"Python 2.7, Google App Engine SDK 1.9.14, Debian Jessie",
-    "displayName":"Python 2.7 + Google App Engine"
-} 
+    "description":"Google App Engine SDK 1.9.14, Python 2.7, Debian Jessie",
+    "displayName":"Google App Engine SDK 1.9 + Python 2.7"
+}
