@@ -6,6 +6,8 @@ RUN apt-get update && \
     useradd -u 5001 -G users,sudo -d /home/user --shell /bin/bash -m user && \
     echo "secret\nsecret" | passwd user && apt-get clean
 
+RUN usermod -u 1000 user
+
 USER user
 
 EXPOSE 4200
