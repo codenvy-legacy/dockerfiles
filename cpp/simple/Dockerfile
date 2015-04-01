@@ -1,3 +1,5 @@
 FROM codenvy/cpp
-CMD make && ./a.out
-ADD $app$ /home/user/
+VOLUME ["/home/user/app"]
+CMD cd /home/user/app && \
+    make && \
+    ./a.out
