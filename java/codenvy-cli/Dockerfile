@@ -11,6 +11,6 @@ VOLUME ["/home/user/application"]
 # 5. Disallow image stop automatically
 CMD mv /home/user/application/codenvy-cli-*/* /home/user/application && \
     rm -R /home/user/application/codenvy-cli-* && \
-    chmod +x /home/user/application/bin/* && \
+    sudo chmod +x /home/user/application/bin/* && \
     echo "/home/user/application/bin/codenvy-cli" >> /home/user/.bashrc && \
     while true;do true; done
