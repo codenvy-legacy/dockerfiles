@@ -2,6 +2,8 @@ FROM codenvy/jdk7
 
 RUN mkdir /home/user/application
 
+ENV CODENVY_APP_BIND_DIR /home/user/application
+
 VOLUME ["/home/user/application"]
 
 # 1. Build application is unpacked zip archive, so move zip content into application dir
