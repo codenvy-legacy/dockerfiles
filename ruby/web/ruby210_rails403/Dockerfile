@@ -2,6 +2,8 @@ FROM codenvy/ruby210_rails403
 
 RUN mkdir /tmp/application /home/user/application
 
+ENV CODENVY_APP_BIND_DIR /home/user/application
+
 VOLUME ["/home/user/application"]
 
 ADD $app$/Gemfile /tmp/application/Gemfile

@@ -7,6 +7,8 @@ CMD ./asadmin start-domain $debug?--debug:$ && \
     ./asadmin deploydir --contextroot "/" /home/user/application && \
     tail -f /home/user/glassfish4/glassfish/domains/domain1/logs/server.log
 
+ENV CODENVY_APP_BIND_DIR /home/user/application
+
 VOLUME ["/home/user/application"]
 
 

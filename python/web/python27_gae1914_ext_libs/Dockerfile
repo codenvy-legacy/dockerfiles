@@ -2,6 +2,8 @@ FROM codenvy/python27_gae1914
 
 RUN mkdir /tmp/application
 
+ENV CODENVY_APP_BIND_DIR /home/user/application
+
 VOLUME ["/home/user/application"]
 
 ADD $app$/requirements.txt /tmp/application/requirements.txt

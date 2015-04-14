@@ -4,6 +4,8 @@ ADD $app$/package.json /tmp/application/package.json
 
 RUN cd /tmp/application && npm install
 
+ENV CODENVY_APP_BIND_DIR /home/user/application
+
 VOLUME ["/home/user/application"]
 
 # 1. Update permissions

@@ -5,6 +5,8 @@ ENV CODENVY_APP_PORT_8080_HTTP 8080
 
 RUN mkdir /tmp/application /home/user/application
 
+ENV CODENVY_APP_BIND_DIR /home/user/application
+
 VOLUME ["/home/user/application"]
 
 ADD $app$/requirements.txt /tmp/application/requirements.txt
