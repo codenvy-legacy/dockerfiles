@@ -6,6 +6,7 @@ RUN cd /home/user/ && wget -q https://storage.googleapis.com/appengine-sdks/depr
 ENV CODENVY_APP_PORT_8080_HTTP 8080
 EXPOSE 8080
 WORKDIR /home/user/appengine-java-sdk-1.9.14/bin
+CMD ./dev_appserver.sh 2>&1 --disable_update_check -a 0.0.0.0 /home/user/app
 
 # === Usage ===
 # FROM codenvy/jdk7_gae1914
