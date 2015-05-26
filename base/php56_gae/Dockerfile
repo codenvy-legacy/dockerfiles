@@ -1,7 +1,7 @@
 FROM codenvy/python27
-RUN cd /home/user/ && wget -q https://storage.googleapis.com/appengine-sdks/deprecated/1914/google_appengine_1.9.14.zip && \
-    unzip -q google_appengine_1.9.14.zip && \
-    rm google_appengine_1.9.14.zip && \
+RUN cd /home/user/ && wget -q https://storage.googleapis.com/appengine-sdks/deprecated/1919/google_appengine_1.9.19.zip && \
+    unzip -q google_appengine_1.9.19.zip && \
+    rm google_appengine_1.9.19.zip && \
     sudo apt-get update -y && \
     sudo apt-get -y install --no-install-recommends php5 php5-cgi
 ENV CODENVY_APP_PORT_8080_HTTP 8080

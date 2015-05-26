@@ -1,5 +1,5 @@
 FROM codenvy/python27
-RUN wget -qO- "https://storage.googleapis.com/appengine-sdks/deprecated/1914/google_appengine_1.9.14.zip" -O /tmp/gae-sdk.zip && \
+RUN wget -qO- "https://storage.googleapis.com/appengine-sdks/deprecated/1919/google_appengine_1.9.19.zip" -O /tmp/gae-sdk.zip && \
     unzip -q /tmp/gae-sdk.zip -d /home/user && \
     rm /tmp/gae-sdk.zip
 EXPOSE 8080
