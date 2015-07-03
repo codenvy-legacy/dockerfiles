@@ -1,5 +1,4 @@
 FROM codenvy/shellinabox
-MAINTAINER Codenvy
 
 # Download the latest Che
 
