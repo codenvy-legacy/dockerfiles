@@ -25,7 +25,7 @@ RUN mkdir /home/user/che && \
     echo "1q2w3e=/home/user/che/temp/fs-root" >> vfs && \
     echo "export PATH=$PATH" >> /home/user/.bashrc && \
     sudo apt-get update && \
-    sudo apt-get install -y -q git && \
+    sudo apt-get install -y -q git subversion && \
     sudo apt-get clean all && \
     mkdir -p /home/user/.codenvy && \
     cd /home/user/.codenvy && \
