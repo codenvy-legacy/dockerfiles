@@ -1,6 +1,6 @@
 FROM codenvy/shellinabox
 
-ENV CHE_VERSION="3.10.3" \
+ENV CHE_VERSION="3.11.4" \
     MAVEN_VERSION=3.2.2 \
     JAVA_VERSION=8u45 \
     JAVA_VERSION_PREFIX=1.8.0_45 \
@@ -41,7 +41,7 @@ RUN mkdir /home/user/che && \
     sudo chmod 757 -R /home/user/che && \
     sudo chmod 757 -R /home/user/.codenvy
 
-ADD codenvy-api-configuration.properties /home/user/.codenvy/codenvy-api-configuration.properties
+ADD che.properties /home/user/.codenvy/che.properties
 
 WORKDIR /home/user/che/bin
 
