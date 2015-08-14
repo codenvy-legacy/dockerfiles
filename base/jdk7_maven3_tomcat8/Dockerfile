@@ -1,5 +1,6 @@
 FROM codenvy/shellinabox
-
+RUN sudo apt-get update && sudo apt-get install git
+LABEL che:server:8080:ref=tomcat8 che:server:8080:protocol=http
 RUN wget \
     --no-cookies \
     --no-check-certificate \
