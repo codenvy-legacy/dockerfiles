@@ -27,3 +27,4 @@ ENV M2_HOME /home/user/maven3
 RUN echo "export M2_HOME=$M2_HOME" >> /home/user/.bashrc
 ENV PATH $M2_HOME/bin:$PATH
 RUN echo "export PATH=$PATH" >> /home/user/.bashrc
+CMD tailf /dev/null
