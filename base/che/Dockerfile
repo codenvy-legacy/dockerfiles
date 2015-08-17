@@ -11,7 +11,7 @@ ENV JAVA_HOME=/opt/jdk$JAVA_VERSION_PREFIX \
 
 ENV PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
 
-RUN mkdir ~/che && \
+RUN apt-get install wget mc curl unzip sudo -y mkdir ~/che && \
     wget -q http://maven.codenvycorp.com/content/repositories/public/org/eclipse/che/sdk/assembly-sdk/$CHE_VERSION/assembly-sdk-$CHE_VERSION.zip -P /home/user && \
     unzip -q /home/user/assembly-sdk-$CHE_VERSION.zip -d ~/che && \
     rm ~/assembly-sdk-$CHE_VERSION.zip && \
