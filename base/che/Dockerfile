@@ -14,8 +14,8 @@ ENV PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
 RUN apt-get update && \
     apt-get install wget mc curl unzip sudo -y && \
     mkdir ~/che && \
-    wget -q http://maven.codenvycorp.com/content/repositories/public/org/eclipse/che/sdk/assembly-sdk/$CHE_VERSION/assembly-sdk-$CHE_VERSION.zip -P /home/user && \
-    unzip -q /home/user/assembly-sdk-$CHE_VERSION.zip -d ~/che && \
+    wget -q http://maven.codenvycorp.com/content/repositories/public/org/eclipse/che/sdk/assembly-sdk/$CHE_VERSION/assembly-sdk-$CHE_VERSION.zip -P ~/ && \
+    unzip -q ~/assembly-sdk-$CHE_VERSION.zip -d ~/che && \
     rm ~/assembly-sdk-$CHE_VERSION.zip && \
     wget \
    --no-cookies \
