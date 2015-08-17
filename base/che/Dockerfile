@@ -46,4 +46,4 @@ WORKDIR /home/user/che/bin
 # expose 8080 port and a range of ports for runners
 EXPOSE 8080 49152-49162
 
-CMD ./che.sh run && tailf /dev/null
+CMD ./che.sh run && tail -f /dev/null
