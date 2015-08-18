@@ -27,7 +27,7 @@ RUN mkdir /home/user/che && \
     echo "export M2_HOME=$M2_HOME" >> /home/user/.bashrc && \
     mkdir -p /home/user/.codenvy && \
     echo "export PATH=$PATH" >> /home/user/.bashrc && \
-    sudo apt-get install -y -q git subversion && \
+    sudo apt-get update && sudo apt-get install -y -q git subversion && \
     sudo apt-get clean all && \
     cd /home/user/.codenvy && \
     touch preference.json profile.json vfs && \
