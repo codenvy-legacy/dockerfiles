@@ -43,7 +43,7 @@ RUN apt-get update && \
 
 ADD che.properties ~/.codenvy/che.properties
 
-WORKDIR ~/che/bin
+WORKDIR /root/che/bin
 
 # expose 8080 port and a range of ports for runners
 EXPOSE 8080 49152-49162
