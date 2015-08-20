@@ -4,7 +4,7 @@ ENV CHE_VERSION="3.11.9" \
     MAVEN_VERSION=3.2.2 \
     JAVA_VERSION=8u45 \
     JAVA_VERSION_PREFIX=1.8.0_45 \
-    CHE_LOCAL_CONF_DIR=/home/user/.codenvy
+    CODENVY_LOCAL_CONF_DIR=/home/user/.codenvy
 
 ENV JAVA_HOME=/opt/jdk$JAVA_VERSION_PREFIX \
     M2_HOME=/opt/apache-maven-$MAVEN_VERSION
@@ -12,7 +12,7 @@ ENV JAVA_HOME=/opt/jdk$JAVA_VERSION_PREFIX \
 ENV PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
  
 RUN mkdir /home/user/che && \
-    wget -q http://maven.codenvycorp.com/content/repositories/public/org/eclipse/che/sdk/assembly-sdk/$CHE_VERSION/assembly-sdk-$CHE_VERSION.zip -P /home/user && \
+    wget -q http://maven.codenvycorp.com/content/repositories/public/org/eclipse/che/sdk/assembly-sdk/$CHE_VERSION/assembly-sdk-$CHE_VERSION.zip && \
     unzip -q /home/user/assembly-sdk-$CHE_VERSION.zip -d /home/user/che && \
     rm /home/user/assembly-sdk-$CHE_VERSION.zip && \
     wget \
@@ -32,7 +32,7 @@ RUN mkdir /home/user/che && \
     cd /home/user/.codenvy && \
     touch preference.json profile.json vfs && \
     echo "1q2w3e=/home/user/che/temp/fs-root" >> vfs && \
-    echo "export CHE_LOCAL_CONF_DIR=$CHE_LOCAL_CONF_DIR" >> /home/user/.bashrc && \
+    echo "export CODENVY_LOCAL_CONF_DIR=$CODENVY_LOCAL_CONF_DIR" >> /home/user/.bashrc && \
     sudo chmod 757 -R /home/user/che && \
     sudo chmod 757 -R /home/user/.codenvy
 
