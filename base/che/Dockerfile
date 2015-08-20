@@ -12,7 +12,7 @@ ENV JAVA_HOME=/opt/jdk$JAVA_VERSION_PREFIX \
 ENV PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
  
 RUN mkdir /home/user/che && \
-    wget -q http://maven.codenvycorp.com/content/repositories/public/org/eclipse/che/sdk/assembly-sdk/$CHE_VERSION/assembly-sdk-$CHE_VERSION.zip && \
+    wget -q http://maven.codenvycorp.com/content/repositories/public/org/eclipse/che/sdk/assembly-sdk/$CHE_VERSION/assembly-sdk-$CHE_VERSION.zip -P /home/user && \
     unzip -q /home/user/assembly-sdk-$CHE_VERSION.zip -d /home/user/che && \
     rm /home/user/assembly-sdk-$CHE_VERSION.zip && \
     wget \
