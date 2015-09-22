@@ -29,7 +29,7 @@ ENV JAVA_HOME=/opt/jdk$JAVA_VERSION_PREFIX \
 
 ENV PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
 
-RUN mkdir /home/user/che-$CHE_VERSION && \
+RUN mkdir /home/user/che-$CHE_VERSION /home/user/che-projects && \
     wget -q http://maven.codenvycorp.com/content/repositories/public/org/eclipse/che/sdk/assembly-sdk/$CHE_VERSION/assembly-sdk-$CHE_VERSION.zip -P /home/user && \
     unzip -q /home/user/assembly-sdk-$CHE_VERSION.zip -d /home/user && \
     cp -a /home/user/assembly-sdk-$CHE_VERSION/. /home/user/che-$CHE_VERSION/ && \
@@ -48,7 +48,7 @@ RUN mkdir /home/user/che-$CHE_VERSION && \
     mkdir -p /home/user/.che && \
     echo "export PATH=$PATH" >> /home/user/.bashrc && \
     cd /home/user/.che && \
-    touch preference.json profile.json vfs && \
+    touch vfs && \
     echo "1q2w3e=/home/user/che-$CHE_VERSION/temp/fs-root" >> vfs && \
     echo "export CHE_LOCAL_CONF_DIR=$CHE_LOCAL_CONF_DIR" >> /home/user/.bashrc && \
     sudo chmod 757 -R /home/user/che-$CHE_VERSION && \
