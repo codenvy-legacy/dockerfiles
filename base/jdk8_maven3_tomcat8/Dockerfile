@@ -1,6 +1,6 @@
 FROM codenvy/shellinabox
 RUN sudo apt-get update && sudo apt-get install git -y
-LABEL che:server:8080:ref=tomcat8 che:server:8080:protocol=http che:server:4200:ref=shellinabox che:server:4200:protocol=http
+LABEL che:server:8080:ref=tomcat8 che:server:8080:protocol=http che:server:8000:ref=tomcat8-debug che:server:8000:protocol=http che:server:4200:ref=shellinabox che:server:4200:protocol=http
 RUN wget \
     --no-cookies \
     --no-check-certificate \
@@ -17,7 +17,7 @@ RUN mkdir /home/user/tomcat8 && \
     wget -qO- "http://archive.apache.org/dist/tomcat/tomcat-8/v8.0.24/bin/apache-tomcat-8.0.24.tar.gz" | tar -zx --strip-components=1 -C /home/user/tomcat8 && \
     rm -rf /home/user/tomcat8/webapps/*
      
-EXPOSE 8080
+EXPOSE 8080 8000
 ENV CODENVY_APP_PORT_8080_HTTP 8080
 
 
