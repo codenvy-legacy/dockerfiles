@@ -1,7 +1,7 @@
 FROM centos:centos7
 ENV container docker
 RUN yum -y update
-RUN yum install -y initscripts e2fsprogs lxc sudo rsyslog mc httpd unzip wget mailx postfix openssh-server openssh-clients http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+RUN yum install -y initscripts e2fsprogs lxc sudo rsyslog mc httpd unzip wget mailx postfix fping openssh-server openssh-clients http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
 RUN yum reinstall -y glibc-common;  yum clean all
 RUN echo "LANG=\"en_GB.UTF-8\"" > /etc/locale.conf
 RUN mkdir -p /etc/systemd/system/multi-user.target.wants
