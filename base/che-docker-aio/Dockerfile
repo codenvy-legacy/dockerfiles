@@ -2,7 +2,7 @@ FROM centos:centos7
 MAINTAINER codenvy.com
 ENV container docker
 RUN yum -y update
-RUN rmp -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+RUN rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 RUN yum install -y initscripts e2fsprogs lxc sudo rsyslog mc httpd unzip wget mailx postfix fping-3.10-4.el7.x86_64 openssh-server openssh-clients http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
 RUN yum reinstall -y glibc-common;  yum clean all
 RUN echo "LANG=\"en_GB.UTF-8\"" > /etc/locale.conf
