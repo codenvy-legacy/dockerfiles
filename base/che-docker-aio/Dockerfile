@@ -1,4 +1,5 @@
 FROM centos:centos7
+MAINTAINER codenvy.com
 ENV container docker
 RUN yum -y update
 RUN yum install -y initscripts e2fsprogs lxc sudo rsyslog mc httpd unzip wget mailx postfix fping openssh-server openssh-clients http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
