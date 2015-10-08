@@ -16,7 +16,7 @@ dockerfiles=(
   "jdk7_cassandra"
   "jdk7_vnc"
   "jdk7_couchbase"
-  "jdk7_gae1914"
+  "jdk7_gae"
   "jdk7_glassfish4"
   "jdk7_jboss7"
   "jdk7_jetty9"
