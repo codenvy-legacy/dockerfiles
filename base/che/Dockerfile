@@ -60,5 +60,5 @@ RUN sudo chmod +x /usr/local/bin/wrapdocker
 WORKDIR /home/user/che-$CHE_VERSION/bin
 
 # expose 8080 port and a range of ports for runners
-EXPOSE 8080 49152-49162
+EXPOSE 8080 8000 49152-49162
 CMD sudo wrapdocker & ./che.sh run
