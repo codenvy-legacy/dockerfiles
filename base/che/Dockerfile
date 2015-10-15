@@ -1,7 +1,7 @@
 FROM debian:jessie
 
 RUN apt-get update && \
-    apt-get -y install sudo procps wget unzip mc && \
+    apt-get -y install sudo procps wget unzip mc inux-image-virtual kernel linux-image-extra-virtual && \
     echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
     useradd -u 5001 -G users,sudo -d /home/user --shell /bin/bash -m user && \
     echo "secret\nsecret" | passwd user && apt-get clean && \
