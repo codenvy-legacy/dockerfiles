@@ -2,7 +2,7 @@ FROM debian:jessie
 #FROM ubuntu
 EXPOSE 8080 8000
 RUN apt-get update && \
-    apt-get -y install sudo procps wget unzip mc git curl nmap  && \
+    apt-get -y install sudo procps wget unzip mc git curl subversion nmap  && \
     echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
     useradd -u 1000 -G users,sudo -d /home/user --shell /bin/bash -m user && \
     echo "secret\nsecret" | passwd user && apt-get clean
