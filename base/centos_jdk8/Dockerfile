@@ -1,7 +1,7 @@
 FROM centos
 EXPOSE 8080 8000
 RUN yum update -y && \
-    yum -y install sudo procps wget unzip mc git curl nmap && \
+    yum -y install sudo procps wget unzip mc git curl subversion nmap && \
     echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
     useradd -u 1000 -G users,wheel -d /home/user --shell /bin/bash -m user -p secret && \
     sed -i 's/requiretty/!requiretty/g' /etc/sudoers
