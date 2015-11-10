@@ -38,5 +38,6 @@ EXPOSE 4444 6080 32745
 ENV DISPLAY :20.0
 
 CMD /usr/bin/supervisord -c /opt/supervisord.conf & \
+    cd /home/user && sleep 3 && \
     ./chromedriver --port=4444 --whitelisted-ips='' & \
     sleep 365d
