@@ -3,7 +3,7 @@ FROM ubuntu
 RUN apt-get update && \
     apt-get -y install sudo procps wget unzip mc && \
     echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
-    useradd -u 5001 -G users,sudo -d /home/user --shell /bin/bash -m user && \
+    useradd -u 1000 -G users,sudo -d /home/user --shell /bin/bash -m user && \
     echo "secret\nsecret" | passwd user && apt-get clean && \
     sudo apt-get install -y -q git subversion apt-transport-https \
     ca-certificates \
@@ -17,7 +17,7 @@ USER user
 RUN curl -sSL https://get.docker.com/ | sh && \
     sudo usermod -aG docker user
 
-ENV CHE_VERSION="3.12.5.1" \
+ENV CHE_VERSION="3.13.0" \
     MAVEN_VERSION=3.2.2 \
     JAVA_VERSION=8u45 \
     JAVA_VERSION_PREFIX=1.8.0_45 \

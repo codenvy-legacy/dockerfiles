@@ -1,11 +1,14 @@
-#FROM debian:jessie
 FROM ubuntu
 EXPOSE 8080 8000
 RUN apt-get update && \
-    apt-get -y install sudo procps wget unzip mc git curl subversion nmap  && \
+    apt-get -y install sudo procps wget unzip mc curl subversion nmap software-properties-common python-software-properties && \
     echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
     useradd -u 1000 -G users,sudo -d /home/user --shell /bin/bash -m user && \
-    echo "secret\nsecret" | passwd user && apt-get clean
+    echo "secret\nsecret" | passwd user && \
+    add-apt-repository ppa:git-core/ppa && \
+    apt-get update && \
+    sudo apt-get install git -y && \
+    apt-get clean
 
 USER user
 
@@ -45,4 +48,4 @@ RUN cd /home/user/cbuild && \
 
 RUN /home/user/cbuild/cbuild --install
 
-CMD tailf /dev/null
+CMD ["tail", "-f", "/dev/null"]
