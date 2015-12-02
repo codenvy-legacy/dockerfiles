@@ -17,7 +17,7 @@ USER user
 RUN curl -sSL https://get.docker.com/ | sh && \
     sudo usermod -aG docker user
 
-ENV CHE_VERSION="3.13.0" \
+ENV CHE_VERSION="3.13.4.2" \
     MAVEN_VERSION=3.2.2 \
     JAVA_VERSION=8u45 \
     JAVA_VERSION_PREFIX=1.8.0_45 \
@@ -29,7 +29,7 @@ ENV JAVA_HOME=/opt/jdk$JAVA_VERSION_PREFIX \
 ENV PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
 
 RUN mkdir /home/user/che-$CHE_VERSION /home/user/che-projects && \
-    wget -q http://maven.codenvycorp.com/content/repositories/public/org/eclipse/che/sdk/assembly-sdk/$CHE_VERSION/assembly-sdk-$CHE_VERSION.zip -P /home/user && \
+    wget -q http://maven.codenvycorp.com/content/repositories/codenvy-public-releases/org/eclipse/che/ide/assembly-sdk/$CHE_VERSION/assembly-sdk-$CHE_VERSION.zip -P /home/user && \
     unzip -q /home/user/assembly-sdk-$CHE_VERSION.zip -d /home/user && \
     cp -a /home/user/assembly-sdk-$CHE_VERSION/. /home/user/che-$CHE_VERSION/ && \
     rm /home/user/assembly-sdk-$CHE_VERSION.zip && \
