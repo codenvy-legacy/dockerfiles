@@ -42,5 +42,5 @@ RUN apt-get update && \
 USER user
 
 RUN sudo npm install -g npm@latest
-RUN sudo npm install --unsafe-perm -g --verbose express gulp async request lodash browserify bower grunt gulp gulp-uglify socket.io mongoose mocha yeoman-generator underscore yo generator-angular generator-karma
-CMD tail -v /dev/null
+RUN sudo npm install --unsafe-perm -g express gulp async request lodash browserify bower grunt gulp gulp-uglify socket.io mongoose mocha yeoman-generator underscore yo generator-angular generator-karma generator-webapp
+CMD tail -f /dev/null
