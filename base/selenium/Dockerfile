@@ -1,12 +1,24 @@
-FROM codenvy/ubuntu_jdk8
+FROM ubuntu
+
+EXPOSE 8080 8000
+RUN apt-get update && \
+    apt-get -y install sudo procps wget unzip mc curl && \
+    echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
+    useradd -u 1000 -G users,sudo -d /home/user --shell /bin/bash -m user && \
+    echo "secret\nsecret" | passwd user
 
 # install xserver, blackbox, Chrome, Selenium webdriver
+
+USER user
 
 RUN cd /home/user && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - && \
     wget -q http://chromedriver.storage.googleapis.com/2.19/chromedriver_linux64.zip && \
     unzip -q chromedriver_linux64.zip && rm chromedriver_linux64.zip
+
 USER root
+
 RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
+
 USER user
 
 RUN sudo apt-get update -qqy && \
