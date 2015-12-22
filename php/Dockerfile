@@ -50,5 +50,6 @@ RUN sudo sed -i 's/\/var\/www\/html/\/projects/g'  /etc/apache2/sites-available/
     sudo a2enmod rewrite && \
     curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 LABEL che:server:80:ref=apache2 che:server:80:protocol=http
+EXPOSE 80
 CMD sudo service apache2 restart && \
     tail -f /dev/null
