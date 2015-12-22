@@ -1,5 +1,8 @@
 FROM debian:jessie
-#FROM ubuntu
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
 EXPOSE 8080 8000
 RUN apt-get update && \
     apt-get -y install sudo procps wget unzip mc git curl subversion nmap  && \
