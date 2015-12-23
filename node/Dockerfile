@@ -40,7 +40,7 @@ RUN apt-get update && \
 	&& rm "node-v$NODE_VERSION-linux-x64.tar.gz" SHASUMS256.txt.asc
 
 USER user
-
+EXPOSE 3000 5000 9000
 RUN sudo npm install -g npm@latest
 RUN sudo npm install --unsafe-perm -g express gulp async request lodash browserify bower grunt grunt-cli gulp gulp-uglify socket.io mongoose mocha yeoman-generator underscore yo generator-angular generator-karma generator-webapp
 CMD tail -f /dev/null
