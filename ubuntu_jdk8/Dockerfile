@@ -1,9 +1,5 @@
 FROM ubuntu
-RUN locale-gen en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
-EXPOSE 8080 8000
+EXPOSE 8000 8080 9876
 RUN apt-get update && \
     apt-get -y install sudo procps wget unzip mc curl subversion nmap software-properties-common python-software-properties && \
     echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
@@ -12,11 +8,13 @@ RUN apt-get update && \
     add-apt-repository ppa:git-core/ppa && \
     apt-get update && \
     sudo apt-get install git -y && \
-    apt-get clean
+    apt-get clean && \
+    apt-get -y autoremove && \
+    rm -rf /var/lib/apt/lists/*
 
 USER user
 
-LABEL che:server:8080:ref=tomcat8 che:server:8080:protocol=http che:server:8000:ref=tomcat8-debug che:server:8000:protocol=http
+LABEL che:server:8080:ref=tomcat8 che:server:8080:protocol=http che:server:8000:ref=tomcat8-debug che:server:8000:protocol=http che:server:9876:ref=codeserver che:server:9876:protocol=http
 
 
 ENV MAVEN_VERSION=3.2.2 \
