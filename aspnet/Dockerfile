@@ -1,11 +1,34 @@
-FROM codenvy/ubuntu_jre
-USER root
-RUN apt-key adv --keyserver pgp.mit.edu --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-RUN echo "deb http://download.mono-project.com/repo/debian wheezy/snapshots/4.0.5.1 main" > /etc/apt/sources.list.d/mono-xamarin.list \
+FROM debian:7.9 
+
+ENV JAVA_VERSION=8u65 \
+    JAVA_VERSION_PREFIX=1.8.0_65
+ENV JAVA_HOME /opt/jre$JAVA_VERSION_PREFIX
+ENV PATH $JAVA_HOME/bin:$PATH
+RUN apt-get update && \
+    apt-get -y install --no-install-recommends \
+    sudo \
+    procps \
+    wget \
+    unzip \
+    mc \
+    git \
+    curl && \
+    echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
+    useradd -u 1000 -G users,sudo -d /home/user --shell /bin/bash -m user && \
+    echo "secret\nsecret" | passwd user && \
+    wget \
+   --no-cookies \
+   --no-check-certificate \
+   --header "Cookie: oraclelicense=accept-securebackup-cookie" \
+   -qO- \
+   "http://download.oracle.com/otn-pub/java/jdk/$JAVA_VERSION-b17/jre-$JAVA_VERSION-linux-x64.tar.gz" | tar -zx -C /opt/ && \
+    apt-key adv --keyserver pgp.mit.edu --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF && \
+    echo "deb http://download.mono-project.com/repo/debian wheezy/snapshots/4.0.5.1 main" > /etc/apt/sources.list.d/mono-xamarin.list \
         && echo "deb http://download.mono-project.com/repo/debian 40-security main" >> /etc/apt/sources.list.d/mono-xamarin.list \
     && apt-get update \
     && apt-get install -y mono-devel ca-certificates-mono fsharp mono-vbnc nuget \
     && rm -rf /var/lib/apt/lists/*
+
 ENV DNX_VERSION 1.0.0-rc1-final
 ENV DNX_USER_HOME /opt/dnx
 #Currently the CLR packages don't have runtime ids to handle debian:jessie but
