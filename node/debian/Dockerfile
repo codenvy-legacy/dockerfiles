@@ -1,4 +1,4 @@
-FROM eivantsov/jre
+FROM codenvy/debina_jre
 ENV NODE_VERSION=0.12.9 \
     NODE_PATH=/usr/local/lib/node_modules
     

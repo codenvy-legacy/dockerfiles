@@ -1,4 +1,4 @@
-FROM eivantsov/jre
+FROM codenvy/debian_jre
 
 # install php with a set of most widely used extensions
 RUN sudo apt-get update && sudo apt-get install -y \
