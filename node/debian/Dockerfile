@@ -1,4 +1,4 @@
-FROM codenvy/debina_jre
+FROM codenvy/debian_jre
 ENV NODE_VERSION=0.12.9 \
     NODE_PATH=/usr/local/lib/node_modules
     
