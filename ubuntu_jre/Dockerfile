@@ -11,6 +11,7 @@ RUN apt-get update && \
     wget \
     unzip \
     mc \
+    ca-certificates \
     curl \
     software-properties-common \
     python-software-properties && \
