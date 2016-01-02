@@ -34,4 +34,6 @@ LABEL che:server:80:ref=apache2 che:server:80:protocol=http
 EXPOSE 80
 
 CMD sudo service apache2 restart && \
+    sudo chown -R www-data:www-data /projects && \
+    sudo chmod -R 777 /projects && \
     tail -f /dev/null
