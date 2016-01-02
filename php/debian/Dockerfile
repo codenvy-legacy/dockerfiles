@@ -20,9 +20,8 @@ RUN sudo apt-get update && sudo apt-get install -y \
     sudo apt-get -y clean && \
     sudo rm -rf /var/lib/apt/lists/*
 
-RUN sudo sed -i 's/\/var\/www\/html/\/projects/g'  /etc/apache2/sites-available/default && \
-    sudo sed -i 's/\/var\/www\//\/projects\//g' /etc/apache2/apache2.conf && \
-    sudo sed -i 's/None/All/g' /etc/apache2/apache2.conf && \
+RUN sudo sed -i 's/\/var\/www/\/projects/g'  /etc/apache2/sites-available/default && \
+    sudo sed -i 's/None/All/g' /etc/apache2/sites-available/default && \
     echo "ServerName localhost" | sudo tee -a /etc/apache2/apache2.conf && \
     sudo a2enmod rewrite && \
     curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
@@ -31,6 +30,7 @@ RUN sudo sed -i 's/\/var\/www\/html/\/projects/g'  /etc/apache2/sites-available/
 LABEL che:server:80:ref=apache2 che:server:80:protocol=http
 
 EXPOSE 80
-
 CMD sudo service apache2 restart && \
+    sudo chown -R www-data:www-data /projects && \
+    sudo chmod -R 777 /projects && \
     tail -f /dev/null
