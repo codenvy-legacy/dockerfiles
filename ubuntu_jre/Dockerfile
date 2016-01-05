@@ -6,6 +6,7 @@ ENV JAVA_HOME /opt/jre$JAVA_VERSION_PREFIX
 ENV PATH $JAVA_HOME/bin:$PATH
 RUN apt-get update && \
     apt-get -y install \
+    openssh-server \
     sudo \
     procps \
     wget \
@@ -15,6 +16,8 @@ RUN apt-get update && \
     curl \
     software-properties-common \
     python-software-properties && \
+    mkdir /var/run/sshd && \
+    sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd && \
     echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
     useradd -u 1000 -G users,sudo -d /home/user --shell /bin/bash -m user && \
     echo "secret\nsecret" | passwd user && \
@@ -32,4 +35,5 @@ RUN apt-get update && \
     && apt-get -y clean \
     && rm -rf /var/lib/apt/lists/*
 USER user
-CMD ["tail", "-f", "/dev/null"]
+EXPOSE 22
+ENTRYPOINT sudo /usr/sbin/sshd -D

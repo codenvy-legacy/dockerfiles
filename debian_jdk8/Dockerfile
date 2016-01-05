@@ -1,7 +1,9 @@
 FROM debian:jessie
-EXPOSE 8080 8000
+EXPOSE 8080 8000 22
 RUN apt-get update && \
-    apt-get -y install sudo procps wget unzip mc git curl subversion nmap  && \
+    apt-get -y install openssh-server sudo procps wget unzip mc git curl subversion nmap  && \
+    mkdir /var/run/sshd && \
+    sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd && \
     echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
     useradd -u 1000 -G users,sudo -d /home/user --shell /bin/bash -m user && \
     echo "secret\nsecret" | passwd user &&  apt-get -y autoremove \
@@ -47,4 +49,5 @@ RUN cd /home/user/cbuild && \
 
 RUN /home/user/cbuild/cbuild --install
 
-CMD ["tail", "-f", "/dev/null"]
+CMD sudo /usr/sbin/sshd -D && \
+    tail -f /dev/null

@@ -1,7 +1,9 @@
 FROM ubuntu
-EXPOSE 8000 8080 9876
+EXPOSE 8000 8080 9876 22
 RUN apt-get update && \
-    apt-get -y install sudo procps wget unzip mc curl subversion nmap software-properties-common python-software-properties && \
+    apt-get -y install sudo openssh-server procps wget unzip mc curl subversion nmap software-properties-common python-software-properties && \
+    mkdir /var/run/sshd && \
+    sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd && \
     echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
     useradd -u 1000 -G users,sudo -d /home/user --shell /bin/bash -m user && \
     echo "secret\nsecret" | passwd user && \
@@ -51,4 +53,5 @@ RUN cd /home/user/cbuild && \
 
 RUN /home/user/cbuild/cbuild --install
 
-CMD ["tail", "-f", "/dev/null"]
+CMD sudo /usr/sbin/sshd -D && \
+    tail -f /dev/null

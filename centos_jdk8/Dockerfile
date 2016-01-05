@@ -1,7 +1,9 @@
 FROM centos
-EXPOSE 8080 8000
+EXPOSE 8080 8000 22
 RUN yum update -y && \
-    yum -y install sudo procps wget unzip mc git curl subversion nmap && \
+    yum -y install sudo openssh-server procps wget unzip mc git curl subversion nmap && \
+    mkdir /var/run/sshd && \
+    sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd && \
     echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
     useradd -u 1000 -G users,wheel -d /home/user --shell /bin/bash -m user -p secret && \
     sed -i 's/requiretty/!requiretty/g' /etc/sudoers
@@ -33,4 +35,5 @@ ENV TERM xterm
 RUN wget -qO- "http://archive.apache.org/dist/tomcat/tomcat-8/v8.0.24/bin/apache-tomcat-8.0.24.tar.gz" | tar -zx --strip-components=1 -C /home/user/tomcat8 && \
     rm -rf /home/user/tomcat8/webapps/*
 
-CMD tailf /dev/null
+CMD sudo /usr/sbin/sshd -D && \
+    tail -f /dev/null

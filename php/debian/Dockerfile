@@ -29,7 +29,7 @@ RUN sudo sed -i 's/\/var\/www/\/projects/g'  /etc/apache2/sites-available/defaul
 # label is used in Servers tab to display mapped port for Apache process on 80 port in the container
 LABEL che:server:80:ref=apache2 che:server:80:protocol=http
 
-EXPOSE 80
+EXPOSE 80 22
 CMD sudo service apache2 restart && \
     sudo chown -R www-data:www-data /projects && \
     sudo chmod -R 777 /projects && \
