@@ -28,7 +28,8 @@ RUN apt-get update && \
    "http://download.oracle.com/otn-pub/java/jdk/$JAVA_VERSION-b17/jre-$JAVA_VERSION-linux-x64.tar.gz" | tar -zx -C /opt/ && \
     apt-get -y autoremove \
     && apt-get -y clean \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* && \
+    echo "#! /bin/bash\n set -e\n sudo /usr/sbin/sshd -D &\n exec \"\$@\"" > /home/user/entrypoint.sh && chmod a+x /home/user/entrypoint.sh
 USER user
 EXPOSE 22
-ENTRYPOINT sudo /usr/sbin/sshd -D
+ENTRYPOINT ["/home/user/entrypoint.sh"]
