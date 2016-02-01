@@ -25,7 +25,7 @@ M2_HOME=/opt/apache-maven-$MAVEN_VERSION
 
 ENV PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
 
-RUN mkdir /home/user/tomcat8 && sudo mkdir /opt/apache-maven-$MAVEN_VERSION && \
+RUN mkdir /home/user/cbuild /home/user/tomcat8 /home/user/apache-maven-$MAVEN_VERSION && \
   wget \
   --no-cookies \
   --no-check-certificate \
