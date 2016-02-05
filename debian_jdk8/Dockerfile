@@ -21,7 +21,7 @@ ENV MAVEN_VERSION=3.3.9 \
     TOMCAT_HOME=/home/user/tomcat8
 
 ENV JAVA_HOME=/opt/jdk$JAVA_VERSION_PREFIX \
-M2_HOME=/opt/apache-maven-$MAVEN_VERSION
+M2_HOME=/home/user/apache-maven-$MAVEN_VERSION
 
 ENV PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
 
