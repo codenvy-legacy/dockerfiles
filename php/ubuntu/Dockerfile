@@ -7,7 +7,6 @@ RUN sudo apt-get update && sudo apt-get install -y \
     php5-mhash \
     php5-mcrypt \
     php5-curl \
-    php5-cli \
     php5-mysql \
     php5-gd \
     libapache2-mod-php5 \
