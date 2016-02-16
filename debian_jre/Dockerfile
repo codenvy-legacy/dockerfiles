@@ -1,18 +1,16 @@
-FROM debian:7.9 
-
+FROM debian:jessie
 ENV JAVA_VERSION=8u65 \
     JAVA_VERSION_PREFIX=1.8.0_65
 ENV JAVA_HOME /opt/jre$JAVA_VERSION_PREFIX
 ENV PATH $JAVA_HOME/bin:$PATH
 RUN apt-get update && \
-    apt-get -y install --no-install-recommends \
+    apt-get -y install \
     openssh-server \
     sudo \
     procps \
     wget \
     unzip \
     mc \
-    git \
     ca-certificates \
     curl && \
     mkdir /var/run/sshd && \
@@ -20,6 +18,10 @@ RUN apt-get update && \
     echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
     useradd -u 1000 -G users,sudo -d /home/user --shell /bin/bash -m user && \
     echo "secret\nsecret" | passwd user && \
+    sudo echo -e "deb http://ppa.launchpad.net/git-core/ppa/ubuntu precise main\ndeb-src http://ppa.launchpad.net/git-core/ppa/ubuntu precise main" >> /etc/apt/sources.list.d/sources.list && \
+    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A1715D88E1DF1F24 && \
+    sudo apt-get install git -y && \
+    apt-get clean && \
     wget \
    --no-cookies \
    --no-check-certificate \
