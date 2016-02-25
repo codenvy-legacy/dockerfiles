@@ -18,10 +18,12 @@ RUN sudo apt-get update && sudo apt-get install -y \
     php5-cli \
     php5-json \
     php5-cgi \
-    php5-sqlite && \
-    sudo sed -i 's/\/var\/www/\/projects/g'  /etc/apache2/sites-available/000-default.conf && \
-    sudo sed -i 's/None/All/g' /etc/apache2/sites-available/000-default.conf && \
-    echo "ServerName localhost" | sudo tee -a /etc/apache2/apache2.conf && \
+    php5-sqlite
+RUN sudo sed -i 's/\/var\/www\/html/\/projects/g'  /etc/apache2/sites-available/000-default.conf
+RUN sudo sed -i 's/None/All/g' /etc/apache2/apache2.conf
+RUN sudo sed -i 's/\/var\/www/\/projects/g'  /etc/apache2/apache2.conf
+
+RUN    echo "ServerName localhost" | sudo tee -a /etc/apache2/apache2.conf && \
     sudo a2enmod rewrite && \
     curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer && \
     echo -e "MySQL password: $CHE_MYSQL_PASSWORD" >> /home/user/.mysqlrc && \
