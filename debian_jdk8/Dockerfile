@@ -46,7 +46,9 @@ ADD cbuild buildLibrary.sh clone_codenvy.sh projectsList.sh cbuild_autocompletio
 RUN cd /home/user/cbuild && \
     sudo chmod a+x cbuild buildLibrary.sh clone_codenvy.sh projectsList.sh && \
     sudo chown -R user:user /home/user/cbuild
-
+USER root
+RUN  echo -e "JAVA_HOME=/opt/jdk$JAVA_VERSION_PREFIX\nM2_HOME=/home/user/apache-maven-$MAVEN_VERSION\nTOMCAT_HOME=/home/user/tomcat8\nPATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH" >> /etc/environment
+USER user
 RUN /home/user/cbuild/cbuild --install
 
 CMD sudo /usr/sbin/sshd -D && \
