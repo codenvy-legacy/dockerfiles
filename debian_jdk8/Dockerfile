@@ -45,10 +45,13 @@ RUN wget -qO- "http://archive.apache.org/dist/tomcat/tomcat-8/v8.0.24/bin/apache
 ADD cbuild buildLibrary.sh clone_codenvy.sh projectsList.sh cbuild_autocompletion /home/user/cbuild/
 RUN cd /home/user/cbuild && \
     sudo chmod a+x cbuild buildLibrary.sh clone_codenvy.sh projectsList.sh && \
-    sudo chown -R user:user /home/user/cbuild
-USER root
-RUN  echo -e "JAVA_HOME=/opt/jdk$JAVA_VERSION_PREFIX\nM2_HOME=/home/user/apache-maven-$MAVEN_VERSION\nTOMCAT_HOME=/home/user/tomcat8\nPATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH" >> /etc/environment
-USER user
+    sudo chown -R user:user /home/user/cbuild && \
+    sudo locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+RUN echo "export JAVA_HOME=/opt/jdk$JAVA_VERSION_PREFIX\nexport M2_HOME=/home/user/apache-maven-$MAVEN_VERSION\nexport TOMCAT_HOME=/home/user/tomcat8\nexport PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH" >> /home/u
+ser/.bashrc
 RUN /home/user/cbuild/cbuild --install
 
 CMD sudo /usr/sbin/sshd -D && \
