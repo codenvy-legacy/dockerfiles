@@ -11,6 +11,7 @@ RUN apt-get update && \
     wget \
     unzip \
     mc \
+    locales \
     ca-certificates \
     curl && \
     mkdir /var/run/sshd && \
