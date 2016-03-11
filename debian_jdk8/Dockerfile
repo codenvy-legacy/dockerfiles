@@ -1,7 +1,7 @@
 FROM debian:jessie
 EXPOSE 8080 8000 22
 RUN apt-get update && \
-    apt-get -y install openssh-server sudo procps wget unzip mc git curl subversion nmap  && \
+    apt-get -y locales install openssh-server sudo procps wget unzip mc git curl subversion nmap  && \
     mkdir /var/run/sshd && \
     sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd && \
     echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
