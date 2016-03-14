@@ -1,5 +1,5 @@
 FROM centos
-EXPOSE 8080 8000 22
+EXPOSE 4403 8080 8000 22
 RUN yum update -y && \
     yum -y install sudo openssh-server procps wget unzip mc git curl subversion nmap && \
     mkdir /var/run/sshd && \
