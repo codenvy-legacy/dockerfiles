@@ -41,6 +41,6 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 RUN echo "export JAVA_HOME=/opt/jre$JAVA_VERSION_PREFIX\nexport PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH" >> /home/user/.bashrc
 USER user
-EXPOSE 22
+EXPOSE 22 4403
 ENTRYPOINT ["/home/user/entrypoint.sh"]
 
