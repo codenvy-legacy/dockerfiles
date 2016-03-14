@@ -1,5 +1,5 @@
 FROM debian:jessie
-EXPOSE 8080 8000 22
+EXPOSE 4403 8080 8000 22
 RUN apt-get update && \
     apt-get -y install locales openssh-server sudo procps wget unzip mc git curl subversion nmap  && \
     mkdir /var/run/sshd && \
