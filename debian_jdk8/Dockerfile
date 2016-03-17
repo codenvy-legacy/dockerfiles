@@ -46,7 +46,7 @@ ADD cbuild buildLibrary.sh clone_codenvy.sh projectsList.sh cbuild_autocompletio
 RUN cd /home/user/cbuild && \
     sudo chmod a+x cbuild buildLibrary.sh clone_codenvy.sh projectsList.sh && \
     sudo chown -R user:user /home/user/cbuild && \
-    sudo locale-gen en_US.UTF-8
+    sudo locale-gen en_US.UTF-8 && sudo localedef -i en_US -f UTF-8 en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
