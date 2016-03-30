@@ -45,6 +45,4 @@ RUN sudo apt-get update && sudo apt-get install -y \
 LABEL che:server:80:ref=apache2 che:server:80:protocol=http
 
 EXPOSE 80 3306
-CMD sudo chown -R www-data:www-data /projects && \
-    sudo chmod -R 777 /projects && \
-    tail -f /dev/null
+CMD tail -f /dev/null
