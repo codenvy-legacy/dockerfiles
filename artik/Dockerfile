@@ -1,6 +1,6 @@
 FROM fedora:23
-ENV CC arm-linux-gnueabi-gcc \
-    CXX arm-linux-gnueabi-g++
+ENV CC arm-linux-gnueabi-gcc
+ENV CXX arm-linux-gnueabi-g++
 ENV JAVA_VERSION=8u65 \
     JAVA_VERSION_PREFIX=1.8.0_65
 ENV JAVA_HOME /opt/jre$JAVA_VERSION_PREFIX
