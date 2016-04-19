@@ -5,7 +5,8 @@ RUN yum update -y && \
     mkdir /var/run/sshd && \
     sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd && \
     echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
-    useradd -u 1000 -G users,wheel -d /home/user --shell /bin/bash -m user -p secret && \
+    useradd -u 1000 -G users,wheel -d /home/user --shell /bin/bash -m user && \
+    echo -e "codenvy2016\ncodenvy2016" | passwd user && \
     sed -i 's/requiretty/!requiretty/g' /etc/sudoers
 
 USER user
@@ -39,5 +40,6 @@ USER root
 RUN  echo -e "JAVA_HOME=/opt/jdk$JAVA_VERSION_PREFIX\nM2_HOME=/home/user/apache-maven-$MAVEN_VERSION\nTOMCAT_HOME=/home/user/tomcat8\nPATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH" >> /etc/environment
 USER user
 ENV LANG C.UTF-8
-CMD sudo /usr/sbin/sshd -D && \
+CMD sudo /usr/bin/ssh-keygen -A && \
+    sudo /usr/sbin/sshd -D && \
     tail -f /dev/null
