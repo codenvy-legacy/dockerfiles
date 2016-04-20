@@ -28,4 +28,5 @@ RUN dnf update -y && \
 
 EXPOSE 22 4403
 ENTRYPOINT ["/home/user/entrypoint.sh"]
-CMD tail -f /dev/null
+CMD adb start-server && \
+    tail -f /dev/null
