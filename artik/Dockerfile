@@ -9,7 +9,7 @@ ENV PATH $JAVA_HOME/bin:$PATH
 RUN dnf update -y && \
 	  dnf install dnf-plugins-core copr-cli -y && \
 	  dnf copr enable lantw44/arm-linux-gnueabi-toolchain -y && \
-    dnf --enablerepo='*debug*' install android-tools arm-linux-gnueabi-{binutils,gcc,glibc} sudo usbutils openssh-server procps wget unzip mc git curl nmap openssl bash passwd tar gdb gdb-gdbserver sshpass glibc-debuginfo glibc-debuginfo-common -y && \
+    dnf --enablerepo='*debug*' install android-tools arm-linux-gnueabi-{binutils,gcc,glibc} sudo usbutils openssh-server procps wget unzip mc git curl openssl bash passwd tar gdb sshpass -y && \
     dnf clean all && \
     mkdir /var/run/sshd && \
     sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd && \
