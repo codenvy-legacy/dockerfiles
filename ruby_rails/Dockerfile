@@ -8,61 +8,64 @@ ENV RUBYGEMS_VERSION 2.6.2
 USER root
 # skip installing gem documentation
 RUN mkdir -p /usr/local/etc \
-	&& { \
-		echo 'install: --no-document'; \
-		echo 'update: --no-document'; \
-	} >> /usr/local/etc/gemrc
+    && echo 'install: --no-document' >> /usr/local/etc/gemrc \
+    && echo 'update: --no-document' >> /usr/local/etc/gemrc
+USER user
 
 # some of ruby's build scripts are written in ruby
 # we purge this later to make sure our final image uses what we just built
 RUN set -ex \
-	&& buildDeps=' \
-		bison \
-		libgdbm-dev \
-		ruby \
-	' \
-	&& apt-get update \
-	&& apt-get install -y --no-install-recommends make gcc zlib1g-dev autoconf build-essential libssl-dev $buildDeps \
-	&& rm -rf /var/lib/apt/lists/* \
-	&& curl -fSL -o ruby.tar.gz "http://cache.ruby-lang.org/pub/ruby/$RUBY_MAJOR/ruby-$RUBY_VERSION.tar.gz" \
-	&& echo "$RUBY_DOWNLOAD_SHA256 *ruby.tar.gz" | sha256sum -c - \
-	&& mkdir -p /usr/src/ruby \
-	&& tar -xzf ruby.tar.gz -C /usr/src/ruby --strip-components=1 \
-	&& rm ruby.tar.gz \
-	&& cd /usr/src/ruby \
-	&& { echo '#define ENABLE_PATH_CHECK 0'; echo; cat file.c; } > file.c.new && mv file.c.new file.c \
-	&& autoconf \
-	&& ./configure --disable-install-doc \
-	&& make -j"$(nproc)" \
-	&& make install \
-	&& apt-get purge -y --auto-remove $buildDeps \
-	&& gem update --system $RUBYGEMS_VERSION \
-	&& rm -r /usr/src/ruby
+    && buildDeps=' \
+	bison \
+	libgdbm-dev \
+	ruby \
+    ' \
+    && sudo apt-get update \
+    && sudo apt-get install -y --no-install-recommends make gcc zlib1g-dev autoconf build-essential libssl-dev libsqlite3-dev $buildDeps \
+    && sudo rm -rf /var/lib/apt/lists/* \
+    && sudo curl -fSL -o ruby.tar.gz "http://cache.ruby-lang.org/pub/ruby/$RUBY_MAJOR/ruby-$RUBY_VERSION.tar.gz" \
+    && echo "$RUBY_DOWNLOAD_SHA256 *ruby.tar.gz" | sha256sum -c - \
+    && sudo mkdir -p /usr/src/ruby \
+    && sudo tar -xzf ruby.tar.gz -C /usr/src/ruby --strip-components=1 \
+    && sudo rm ruby.tar.gz 
+
+USER root
+RUN cd /usr/src/ruby \
+    && { sudo echo '#define ENABLE_PATH_CHECK 0'; echo; cat file.c; } > file.c.new && mv file.c.new file.c \
+    && autoconf \
+    && ./configure --disable-install-doc 
+USER user
+
+RUN cd /usr/src/ruby \
+    && sudo make -j"$(nproc)" \
+    && sudo make install \
+    && sudo apt-get purge -y --auto-remove $buildDeps \
+    && sudo gem update --system $RUBYGEMS_VERSION \
+    && sudo rm -r /usr/src/ruby
+
 
 ENV BUNDLER_VERSION 1.11.2
 
-RUN gem install bundler --version "$BUNDLER_VERSION"
+RUN sudo gem install bundler --version "$BUNDLER_VERSION"
 
 # install things globally, for great justice
 # and don't create ".bundle" in all our apps
 ENV GEM_HOME /usr/local/bundle
 ENV BUNDLE_PATH="$GEM_HOME" \
-	BUNDLE_BIN="$GEM_HOME/bin" \
-	BUNDLE_SILENCE_ROOT_WARNING=1 \
-	BUNDLE_APP_CONFIG="$GEM_HOME"
+    BUNDLE_BIN="$GEM_HOME/bin" \
+    BUNDLE_SILENCE_ROOT_WARNING=1 \
+    BUNDLE_APP_CONFIG="$GEM_HOME"
 ENV PATH $BUNDLE_BIN:$PATH
-RUN mkdir -p "$GEM_HOME" "$BUNDLE_BIN" \
-	&& chmod 777 "$GEM_HOME" "$BUNDLE_BIN"
+RUN sudo mkdir -p "$GEM_HOME" "$BUNDLE_BIN" \
+    && sudo chmod 777 "$GEM_HOME" "$BUNDLE_BIN"
 
-RUN apt-get update && apt-get install -y nodejs --no-install-recommends && rm -rf /var/lib/apt/lists/*
+RUN sudo apt-get update && sudo apt-get install -y nodejs --no-install-recommends && sudo rm -rf /var/lib/apt/lists/*
 
 # see http://guides.rubyonrails.org/command_line.html#rails-dbconsole
-RUN apt-get update && apt-get install -y mysql-client postgresql-client sqlite3 --no-install-recommends && rm -rf /var/lib/apt/lists/*
+RUN sudo apt-get update && sudo apt-get install -y mysql-client postgresql-client sqlite3 --no-install-recommends && sudo rm -rf /var/lib/apt/lists/*
 
 RUN gem install rails --version "$RAILS_VERSION"
 
 EXPOSE 3000
-ENV CODENVY_APP_PORT_3000_HTTP 3000
 
-USER user
 CMD tailf /dev/null
