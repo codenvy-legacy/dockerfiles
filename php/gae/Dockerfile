@@ -9,4 +9,4 @@ RUN cd /home/user/ && wget -q https://storage.googleapis.com/appengine-sdks/feat
     unzip -q google_appengine_1.9.37.zip && \
     rm google_appengine_1.9.37.zip 
 
-EXPOSE 8080
+EXPOSE 8080 8000
