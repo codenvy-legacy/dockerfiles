@@ -20,3 +20,4 @@ RUN cat /home/user/entrypoint.sh
 EXPOSE 6080
 ENTRYPOINT ["/home/user/entrypoint.sh"]
 CMD tail -f /dev/null
+WORKDIR /projects

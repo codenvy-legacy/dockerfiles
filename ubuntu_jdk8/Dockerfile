@@ -55,3 +55,4 @@ RUN /home/user/cbuild/cbuild --install
 
 CMD sudo /usr/sbin/sshd -D && \
     tail -f /dev/null
+WORKDIR /projects

@@ -33,4 +33,4 @@ RUN sudo npm install --unsafe-perm -g gulp bower grunt grunt-cli yeoman-generato
 
 CMD sudo /usr/sbin/sshd -D && \
     tail -f /dev/null
-
+WORKDIR /projects

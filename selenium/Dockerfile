@@ -53,3 +53,5 @@ CMD /usr/bin/supervisord -c /opt/supervisord.conf & \
     cd /home/user && sleep 3 && \
     ./chromedriver --port=4444 --whitelisted-ips='' & \
     sleep 365d
+
+WORKDIR /projects

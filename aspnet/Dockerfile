@@ -43,3 +43,4 @@ LABEL che:server:5004:ref=asp.net.server che:server:5004:protocol=http
 
 EXPOSE 5004
 CMD tail -f /dev/null
+WORKDIR /projects

@@ -48,3 +48,4 @@ EXPOSE 80 3306
 CMD sudo chown -R www-data:www-data /projects && \
     sudo chmod -R 777 /projects && \
     tail -f /dev/null
+WORKDIR /projects

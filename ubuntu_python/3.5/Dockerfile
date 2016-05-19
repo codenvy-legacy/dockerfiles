@@ -50,3 +50,4 @@ RUN sudo pip install --no-cache-dir virtualenv
 EXPOSE 8080 
 
 CMD tailf /dev/null
+WORKDIR /projects

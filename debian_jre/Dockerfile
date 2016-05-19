@@ -40,3 +40,4 @@ RUN echo "export JAVA_HOME=/opt/jre$JAVA_VERSION_PREFIX\nexport PATH=$JAVA_HOME/
 USER user
 EXPOSE 22 4403
 ENTRYPOINT ["/home/user/entrypoint.sh"]
+WORKDIR /projects

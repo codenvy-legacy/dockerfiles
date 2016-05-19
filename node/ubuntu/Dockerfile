@@ -31,3 +31,4 @@ EXPOSE 3000 5000 9000
 RUN sudo npm install -g npm@latest
 RUN sudo npm install --unsafe-perm -g gulp bower grunt grunt-cli yeoman-generator yo generator-angular generator-karma generator-webapp
 CMD tail -f /dev/null
+WORKDIR /projects

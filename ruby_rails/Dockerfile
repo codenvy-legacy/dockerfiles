@@ -69,3 +69,4 @@ RUN sudo gem install rails --version "$RAILS_VERSION"
 EXPOSE 3000
 
 CMD tailf /dev/null
+WORKDIR /projects

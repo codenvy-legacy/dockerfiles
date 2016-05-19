@@ -43,3 +43,4 @@ ENV LANG C.UTF-8
 CMD sudo /usr/bin/ssh-keygen -A && \
     sudo /usr/sbin/sshd -D && \
     tail -f /dev/null
+WORKDIR /projects

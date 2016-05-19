@@ -51,3 +51,4 @@ RUN echo "export JAVA_HOME=/opt/jdk$JAVA_VERSION_PREFIX\nexport M2_HOME=/home/us
 RUN /home/user/cbuild/cbuild --install
 CMD sudo /usr/sbin/sshd -D && \
     tail -f /dev/null
+WORKDIR /projects

@@ -12,3 +12,4 @@ RUN wget -qO- "https://storage.googleapis.com/appengine-sdks/featured/google_app
 
 EXPOSE 8080 8000
 CMD tailf /dev/null
+WORKDIR /projects
