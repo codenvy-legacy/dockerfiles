@@ -44,5 +44,7 @@ RUN set -ex \
 # install "virtualenv", since the vast majority of users of this image will want it
 RUN sudo pip install --no-cache-dir virtualenv
 EXPOSE 8080
-CMD tailf /dev/null
+
 WORKDIR /projects
+
+CMD tailf /dev/null

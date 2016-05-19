@@ -33,5 +33,6 @@ RUN sudo apt-get update && \
     sudo locale-gen en_US.UTF-8 && \
 	sudo localedef -i en_GB -f UTF-8 en_US.UTF
 	
-CMD tail -f /dev/null
 WORKDIR /projects
+
+CMD tail -f /dev/null

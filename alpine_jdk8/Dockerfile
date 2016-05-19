@@ -50,7 +50,9 @@ EXPOSE 22 8000 8080
 
 USER user
 
+WORKDIR /projects
+
 CMD sudo /usr/bin/ssh-keygen -A && \
     sudo /usr/sbin/sshd -D && \
     tail -f /dev/null
-WORKDIR /projects
+

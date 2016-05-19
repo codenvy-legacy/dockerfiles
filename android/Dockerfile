@@ -59,5 +59,7 @@ ADD supervisord.conf /opt/
 
 ENTRYPOINT ["/home/user/entrypoint.sh"]
 EXPOSE 4403 6080 22
-CMD tail -f /dev/null
+
 WORKDIR /projects
+
+CMD tail -f /dev/null

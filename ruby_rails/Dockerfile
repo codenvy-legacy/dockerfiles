@@ -67,6 +67,6 @@ RUN sudo apt-get update && sudo apt-get install -y mysql-client postgresql-clien
 RUN sudo gem install rails --version "$RAILS_VERSION"
 
 EXPOSE 3000
+WORKDIR /projects
 
 CMD tailf /dev/null
-WORKDIR /projects
