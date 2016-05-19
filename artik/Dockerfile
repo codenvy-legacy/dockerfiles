@@ -33,7 +33,7 @@ RUN rm -rf /root/tmp && mkdir /root/tmp && wget -q https://install2.codenvycorp.
     rpm2cpio /root/tmp/artik-sdk-0.6/RPMS/libartik-base-debuginfo-0.1.1-0.armv7hl.rpm | cpio -idmv  &> /dev/null && \
     rpm2cpio /root/tmp/artik-sdk-0.6/RPMS/libartik-sdk-0.6-0.armv7hl.rpm | cpio -idmv  &> /dev/null && \
     rpm2cpio /root/tmp/artik-sdk-0.6/RPMS/libartik-sdk-tests-0.6-0.armv7hl.rpm | cpio -idmv &> /dev/null && \
-    cp -R /root/tmp/usr/lib/* /usr/arm-linux-gnueabi/sys-root/lib && yes | cp -R /root/tmp/usr/* /usr/arm-linux-gnueabi
+    cp -R /root/tmp/usr/lib/* /usr/arm-linux-gnueabi/sys-root/lib && cp -R /root/tmp/usr/* /usr/arm-linux-gnueabi
 EXPOSE 22 4403
 ENTRYPOINT ["/root/entrypoint.sh"]
 WORKDIR /projects
