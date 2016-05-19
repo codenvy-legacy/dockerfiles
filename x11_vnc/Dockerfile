@@ -19,4 +19,5 @@ RUN  echo "#! /bin/bash\n set -e\n sudo /usr/sbin/sshd -D &\n/usr/bin/supervisor
 RUN cat /home/user/entrypoint.sh
 EXPOSE 6080
 ENTRYPOINT ["/home/user/entrypoint.sh"]
+WORKDIR /projects
 CMD tail -f /dev/null

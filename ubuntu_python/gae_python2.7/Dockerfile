@@ -11,4 +11,5 @@ RUN wget -qO- "https://storage.googleapis.com/appengine-sdks/featured/google_app
     rm /tmp/gae-sdk.zip
 
 EXPOSE 8080 8000
+WORKDIR /projects
 CMD tailf /dev/null

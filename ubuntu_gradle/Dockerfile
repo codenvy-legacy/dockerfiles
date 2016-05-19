@@ -8,3 +8,4 @@ RUN wget -P /home/user/ --quiet https://services.gradle.org/distributions/gradle
     cd /home/user/ && unzip gradle-$GRADLE_VERSION-bin.zip && rm gradle-$GRADLE_VERSION-bin.zip
 
 EXPOSE 9000
+WORKDIR /projects
