@@ -9,7 +9,7 @@ ENV CHE_MYSQL_USER=che
 RUN sudo apt-get update && \
     sudo apt-get install -y \
     apache2 \
-    php5.5 \
+    php5 \
     php5-mhash \
     php5-mcrypt \
     php5-curl \
@@ -21,7 +21,7 @@ RUN sudo apt-get update && \
     php5-json \
     php5-cgi \
     php5-sqlite
-RUN sudo sed -i 's/\/var\/www/\/projects/g'  /etc/apache2/sites-available/000-default.conf && \
+RUN sudo sed -i 's/\/var\/www\/html/\/projects/g'  /etc/apache2/sites-available/000-default.conf && \
     sudo sed -i 's/None/All/g' /etc/apache2/sites-available/000-default.conf && \
     echo "ServerName localhost" | sudo tee -a /etc/apache2/apache2.conf && \
     sudo a2enmod rewrite
