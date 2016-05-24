@@ -1,3 +1,11 @@
+# Copyright (c) 2012-2016 Codenvy, S.A.
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Eclipse Public License v1.0
+# which accompanies this distribution, and is available at
+# http://www.eclipse.org/legal/epl-v10.html
+# Contributors:
+# Codenvy, S.A. - initial API and implementation
+
 FROM ubuntu
 EXPOSE 4403 8000 8080 9990 22
 RUN apt-get update && \
@@ -58,4 +66,3 @@ WORKDIR /projects
 
 CMD sudo /usr/sbin/sshd -D && \
     tail -f /dev/null
-

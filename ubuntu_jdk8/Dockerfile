@@ -1,3 +1,11 @@
+# Copyright (c) 2012-2016 Codenvy, S.A.
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Eclipse Public License v1.0
+# which accompanies this distribution, and is available at
+# http://www.eclipse.org/legal/epl-v10.html
+# Contributors:
+# Codenvy, S.A. - initial API and implementation
+
 FROM ubuntu
 EXPOSE 4403 8000 8080 9876 22
 RUN apt-get update && \
@@ -38,20 +46,13 @@ RUN mkdir /home/user/cbuild /home/user/tomcat8 /home/user/apache-maven-$MAVEN_VE
   "http://download.oracle.com/otn-pub/java/jdk/$JAVA_VERSION-b14/jdk-$JAVA_VERSION-linux-x64.tar.gz" | sudo tar -zx -C /opt/ && \
   wget -qO- "http://apache.ip-connect.vn.ua/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz" | tar -zx --strip-components=1 -C /home/user/apache-maven-$MAVEN_VERSION/
 ENV TERM xterm
-ENV PATH_TO_CBUILD_PROJECTS_FOLDER /projects
-ENV PATH_TO_CBUILD_LIBRARY_FOLDER /home/user/cbuild
 
 RUN wget -qO- "http://archive.apache.org/dist/tomcat/tomcat-8/v8.0.24/bin/apache-tomcat-8.0.24.tar.gz" | tar -zx --strip-components=1 -C /home/user/tomcat8 && \
     rm -rf /home/user/tomcat8/webapps/*
 
 
-ADD cbuild buildLibrary.sh clone_codenvy.sh projectsList.sh cbuild_autocompletion /home/user/cbuild/
-RUN cd /home/user/cbuild && \
-    sudo chmod a+x cbuild buildLibrary.sh clone_codenvy.sh projectsList.sh && \
-    sudo chown -R user:user /home/user/cbuild
 ENV LANG C.UTF-8
 RUN echo "export JAVA_HOME=/opt/jdk$JAVA_VERSION_PREFIX\nexport M2_HOME=/home/user/apache-maven-$MAVEN_VERSION\nexport TOMCAT_HOME=/home/user/tomcat8\nexport PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH" >> /home/user/.bashrc
-RUN /home/user/cbuild/cbuild --install
 
 WORKDIR /projects
 

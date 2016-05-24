@@ -1,3 +1,11 @@
+# Copyright (c) 2012-2016 Codenvy, S.A.
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Eclipse Public License v1.0
+# which accompanies this distribution, and is available at
+# http://www.eclipse.org/legal/epl-v10.html
+# Contributors:
+# Codenvy, S.A. - initial API and implementation
+
 FROM ubuntu
 
 ENV MAVEN_VERSION=3.2.3 \
@@ -27,7 +35,7 @@ RUN sudo dpkg --add-architecture i386 && \
     sudo sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd && \
     sudo add-apt-repository ppa:git-core/ppa && \
     sudo apt-get update && \
-    sudo sudo apt-get install git -y && \
+    sudo sudo apt-get install git subversion -y && \
     mkdir /home/user/apache-maven-$MAVEN_VERSION && \
     wget \
     --no-cookies \
