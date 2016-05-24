@@ -1,3 +1,11 @@
+# Copyright (c) 2012-2016 Codenvy, S.A.
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Eclipse Public License v1.0
+# which accompanies this distribution, and is available at
+# http://www.eclipse.org/legal/epl-v10.html
+# Contributors:
+# Codenvy, S.A. - initial API and implementation
+
 FROM ubuntu:14.04
 
 ENV JAVA_VERSION=8u65 \
@@ -23,7 +31,7 @@ RUN apt-get update && \
     echo "secret\nsecret" | passwd user && \
     add-apt-repository ppa:git-core/ppa && \
     apt-get update && \
-    sudo apt-get install git -y && \
+    sudo apt-get install git subversion -y && \
     apt-get clean && \
     wget \
    --no-cookies \

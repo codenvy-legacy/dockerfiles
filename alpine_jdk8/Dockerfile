@@ -1,3 +1,11 @@
+# Copyright (c) 2012-2016 Codenvy, S.A.
+# All rights reserved. This program and the accompanying materials
+# are made available under the terms of the Eclipse Public License v1.0
+# which accompanies this distribution, and is available at
+# http://www.eclipse.org/legal/epl-v10.html
+# Contributors:
+# Codenvy, S.A. - initial API and implementation
+
 FROM alpine:3.3
 
 # Here we use several hacks collected from https://github.com/gliderlabs/docker-alpine/issues/11:
@@ -23,7 +31,7 @@ RUN apk add --no-cache --virtual=build-dependencies wget ca-certificates && \
     /usr/glibc/usr/bin/ldconfig "/lib" "/usr/glibc/usr/lib" && \
     echo 'hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4' >> /etc/nsswitch.conf && \
     rm "$ALPINE_GLIBC_PACKAGE" "$ALPINE_GLIBC_BIN_PACKAGE" && \
-    apk add --update --no-cache openssh curl mc git sudo unzip bash ca-certificates && \
+    apk add --update --no-cache openssh curl mc git subversion sudo unzip bash ca-certificates && \
     cd "/tmp" && \
     wget -q --header "Cookie: oraclelicense=accept-securebackup-cookie;" \
         "http://download.oracle.com/otn-pub/java/jdk/${JAVA_VERSION}u${JAVA_UPDATE}-b${JAVA_BUILD}/jdk-${JAVA_VERSION}u${JAVA_UPDATE}-linux-x64.tar.gz" && \
@@ -36,6 +44,7 @@ RUN apk add --no-cache --virtual=build-dependencies wget ca-certificates && \
     wget -q "http://apache.ip-connect.vn.ua/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz" && tar -xzf "apache-maven-$MAVEN_VERSION-bin.tar.gz" && \
     mv "/tmp/apache-maven-$MAVEN_VERSION" "/usr/lib" && \
     rm "/tmp/"* && \
+    deluser svn && \
     adduser -S user -h /home/user -s /bin/bash -G root -u 1000 && \
     echo "%root ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
     PASS=$(openssl rand -base64 32) && \
@@ -55,4 +64,3 @@ WORKDIR /projects
 CMD sudo /usr/bin/ssh-keygen -A && \
     sudo /usr/sbin/sshd -D && \
     tail -f /dev/null
-
