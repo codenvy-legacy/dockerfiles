@@ -17,6 +17,7 @@ RUN echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/dotnet/ trusty
     sudo apt-get -y clean && \
     sudo rm -rf /var/lib/apt/lists/*
 ENV LANG C.UTF-8
+EXPOSE 5000
 WORKDIR /projects
 CMD tail -f /dev/null
 
