@@ -18,6 +18,7 @@ RUN echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/dotnet/ trusty
     sudo rm -rf /var/lib/apt/lists/*
 ENV LANG C.UTF-8
 EXPOSE 5000
+LABEL che:server:5000:ref=dot.net.server che:server:5000:protocol=http
 WORKDIR /projects
 CMD tail -f /dev/null
 
