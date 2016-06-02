@@ -6,7 +6,7 @@
 # Contributors:
 # Codenvy, S.A. - initial API and implementation
 
-FROM ubuntu
+FROM ubuntu:14.04
 
 ENV MAVEN_VERSION=3.2.3 \
     JAVA_VERSION=8u45 \
