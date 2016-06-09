@@ -6,9 +6,9 @@
 # Contributors:
 # Codenvy, S.A. - initial API and implementation
 
-FROM ubuntu
+FROM ubuntu:14.04
 
-ENV MAVEN_VERSION=3.2.3 \
+ENV MAVEN_VERSION=3.3.9 \
     JAVA_VERSION=8u45 \
     JAVA_VERSION_PREFIX=1.8.0_45
 ENV JAVA_HOME=/opt/jdk$JAVA_VERSION_PREFIX \
