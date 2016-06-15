@@ -7,7 +7,6 @@
 # Codenvy, S.A.	- initial API and implementation
 # LamdaFu, LLC 	- added BigTop 1.1.0 fork of ubuntu_jdk8 Dockerfile
 
-# trusty currently required for BigTop
 FROM ubuntu:trusty
 MAINTAINER https://github.com/LamdaFu/dockerfiles/issues
 
