@@ -35,6 +35,8 @@ RUN unzip -q artik-libs-deps.zip -d /usr/arm-linux-gnueabi/sys-root && rm artik-
 RUN echo -e "[artik]\nname=Artik \$releasever - \$basearch\nfailovermethod=priority\nbaseurL=https://install2.codenvycorp.com/artik/\nenabled=1\ngpgcheck=0" > /etc/yum.repos.d/artik.repo && \
     dnf install libartik-sdk-sysroot.noarch -y
 EXPOSE 22 4403
+ADD artik-sdk-doc-0.6.zip /artik-sdk-doc-0.6.zip
+RUN unzip artik-sdk-doc-0.6.zip -d /
 ENTRYPOINT ["/root/entrypoint.sh"]
 WORKDIR /projects
 CMD adb start-server && \
