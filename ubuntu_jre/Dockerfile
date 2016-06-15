@@ -49,3 +49,4 @@ USER user
 EXPOSE 22 4403
 WORKDIR /projects
 ENTRYPOINT ["/home/user/entrypoint.sh"]
+CMD tail -f /dev/null
