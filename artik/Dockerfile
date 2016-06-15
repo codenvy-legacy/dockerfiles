@@ -37,6 +37,9 @@ RUN echo -e "[artik]\nname=Artik \$releasever - \$basearch\nfailovermethod=prior
 EXPOSE 22 4403
 ADD artik-sdk-doc-0.6.zip /artik-sdk-doc-0.6.zip
 RUN unzip artik-sdk-doc-0.6.zip -d /
+RUN mkdir -p /artik-docs/html
+RUN mv artik-sdk-doc-0.6/html/* /artik-docs/html
+RUN rm -rf artik-sdk-doc-0.6 && rm artik-sdk-doc-0.6.zip
 ENTRYPOINT ["/root/entrypoint.sh"]
 WORKDIR /projects
 CMD adb start-server && \
