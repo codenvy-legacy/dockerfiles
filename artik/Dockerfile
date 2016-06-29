@@ -35,7 +35,7 @@ RUN unzip -q artik-libs-deps.zip -d /usr/arm-linux-gnueabi/sys-root && rm artik-
 ADD artik.repo /etc/yum.repos.d/artik.repo
 ADD RPM-GPG-KEY-artik-22-armhfp /etc/pki/rpm-gpg/RPM-GPG-KEY-artik-22-armhfp
 RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-artik-22-armhfp
-RUN dnf install --disablerepo=updates --disablerepo=lantw44-arm-linux-gnueabi-toolchain --disablerepo=fedora libartik-sdk-sysroot libartik-sdk-doc -y
+RUN dnf makecache && dnf install --disablerepo=updates --disablerepo=lantw44-arm-linux-gnueabi-toolchain --disablerepo=fedora libartik-sdk-sysroot libartik-sdk-doc -y
 EXPOSE 22 4403
 ENTRYPOINT ["/root/entrypoint.sh"]
 WORKDIR /projects
