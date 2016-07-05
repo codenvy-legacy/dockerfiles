@@ -18,9 +18,14 @@ RUN echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/dotnet/ trusty
     sudo apt-get -y autoremove && \
     sudo apt-get -y clean && \
     sudo rm -rf /var/lib/apt/lists/*
+    
+RUN curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+RUN sudo apt-get install nodejs -y
+RUN sudo npm install -g yo bower grunt-cli gulp
+RUN sudo npm install -g generator-aspnet
+
 ENV LANG C.UTF-8
 EXPOSE 5000
 LABEL che:server:5000:ref=dot.net.server che:server:5000:protocol=http
 WORKDIR /projects
 CMD tail -f /dev/null
-
