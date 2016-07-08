@@ -5,6 +5,7 @@
 # http://www.eclipse.org/legal/epl-v10.html
 # Contributors:
 # Abel García Dorta <mercuriete@gmail.com> 
+# Roger Narayan <narayanroger@gmail.com>
 
 FROM codenvy/ubuntu_jre
 
