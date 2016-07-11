@@ -14,6 +14,7 @@ ENV JAVA_VERSION=8u65 \
 ENV JAVA_HOME /opt/jre$JAVA_VERSION_PREFIX
 ENV PATH $JAVA_HOME/bin:$PATH
 ENV CPATH=/usr/arm-linux-gnueabi/sys-root/usr/include/artik
+ENV NODE_PATH=/usr/local/lib/node_modules
 RUN dnf update -y && \
     dnf install dnf-plugins-core copr-cli -y && \
     dnf copr enable lantw44/arm-linux-gnueabi-toolchain -y && \
