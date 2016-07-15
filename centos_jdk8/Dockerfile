@@ -31,7 +31,7 @@ ENV JAVA_HOME=/opt/jdk$JAVA_VERSION_PREFIX \
 
 ENV PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
 
-RUN mkdir /home/user/tomcat8 && sudo mkdir /opt/apache-maven-$MAVEN_VERSION && \
+RUN mkdir /home/user/tomcat8 && mkdir /home/user/apache-maven-$MAVEN_VERSION && \
   wget \
   --no-cookies \
   --no-check-certificate \
