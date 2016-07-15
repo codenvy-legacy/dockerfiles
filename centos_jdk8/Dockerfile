@@ -27,7 +27,7 @@ ENV MAVEN_VERSION=3.3.9 \
     TOMCAT_HOME=/home/user/tomcat8
 
 ENV JAVA_HOME=/opt/jdk$JAVA_VERSION_PREFIX \
-    M2_HOME=/opt/apache-maven-$MAVEN_VERSION
+    M2_HOME=/home/user/apache-maven-$MAVEN_VERSION
 
 ENV PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
 
@@ -38,8 +38,7 @@ RUN mkdir /home/user/tomcat8 && sudo mkdir /opt/apache-maven-$MAVEN_VERSION && \
   --header "Cookie: oraclelicense=accept-securebackup-cookie" \
   -qO- \
   "http://download.oracle.com/otn-pub/java/jdk/$JAVA_VERSION-b14/jdk-$JAVA_VERSION-linux-x64.tar.gz" | sudo tar -zx -C /opt/ && \
-  sudo wget -qO- "https://archive.apache.org/dist/maven/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz" | sudo tar -zx --strip-components=1 -C /opt/apache-maven-$MAVEN_VERSION/
-
+  wget -qO- "http://apache.ip-connect.vn.ua/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz" | tar -zx --strip-components=1 -C /home/user/apache-maven-$MAVEN_VERSION/
 ENV TERM xterm
 
 RUN wget -qO- "http://archive.apache.org/dist/tomcat/tomcat-8/v8.0.24/bin/apache-tomcat-8.0.24.tar.gz" | tar -zx --strip-components=1 -C /home/user/tomcat8 && \
