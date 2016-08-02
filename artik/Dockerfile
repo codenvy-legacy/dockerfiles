@@ -38,6 +38,8 @@ ADD RPM-GPG-KEY-artik-22-armhfp /etc/pki/rpm-gpg/RPM-GPG-KEY-artik-22-armhfp
 RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-artik-22-armhfp
 RUN dnf makecache && dnf install --disablerepo=updates --disablerepo=lantw44-arm-linux-gnueabi-toolchain --disablerepo=fedora libartik-sdk-sysroot libartik-sdk-doc -y
 EXPOSE 22 4403
+ADD rsync.sh /usr/local/bin/rsync.sh
+RUN chmod +x /usr/local/bin/rsync.sh
 ENTRYPOINT ["/root/entrypoint.sh"]
 WORKDIR /projects
 CMD adb start-server && \
