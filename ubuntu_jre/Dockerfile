@@ -43,8 +43,11 @@ RUN apt-get update && \
     && apt-get -y clean \
     && rm -rf /var/lib/apt/lists/* && \
     echo "#! /bin/bash\n set -e\n sudo /usr/sbin/sshd -D &\n exec \"\$@\"" > /home/user/entrypoint.sh && chmod a+x /home/user/entrypoint.sh
-ENV LANG C.UTF-8
-RUN echo "export JAVA_HOME=/opt/jre$JAVA_VERSION_PREFIX\nexport PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH" >> /home/user/.bashrc
+
+ENV LANG en_GB.UTF-8
+ENV LANG en_US.UTF-8
+RUN echo "export JAVA_HOME=/opt/jre$JAVA_VERSION_PREFIX\nexport PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH" >> /home/user/.bashrc && \
+    sudo locale-gen en_US.UTF-8
 USER user
 EXPOSE 22 4403
 WORKDIR /projects

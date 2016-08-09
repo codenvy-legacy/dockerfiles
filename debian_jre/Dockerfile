@@ -43,7 +43,8 @@ RUN PASS=$(openssl rand -base64 32) && \
     && rm -rf /var/lib/apt/lists/* && \
     echo "#! /bin/bash\n set -e\n sudo /usr/sbin/sshd -D &\n exec \"\$@\"" > /home/user/entrypoint.sh && chmod a+x /home/user/entrypoint.sh
 ENV LANG C.UTF-8
-RUN echo "export JAVA_HOME=/opt/jre$JAVA_VERSION_PREFIX\nexport PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH" >> /home/user/.bashrc
+RUN echo "export JAVA_HOME=/opt/jre$JAVA_VERSION_PREFIX\nexport PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH" >> /home/user/.bashrc && \
+    sudo localedef -i en_US -f UTF-8 en_US.UTF-8
 
 USER user
 EXPOSE 22 4403
