@@ -14,7 +14,9 @@ ENV MAVEN_VERSION=3.3.9 \
 ENV JAVA_HOME=/opt/jdk$JAVA_VERSION_PREFIX \
 M2_HOME=/home/user/apache-maven-$MAVEN_VERSION
 ENV TERM xterm
-ENV LANG C.UTF-8
+ENV LANG en_GB.UTF-8
+ENV LANG en_US.UTF-8
+RUN sudo locale-gen en_US.UTF-8
 ENV PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
 ENV ANDROID_HOME=/home/user/android-sdk-linux
 ENV PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH

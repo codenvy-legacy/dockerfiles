@@ -16,7 +16,7 @@ RUN apt-get update && \
     useradd -u 1000 -G users,sudo -d /home/user --shell /bin/bash -m user && \
     echo "secret\nsecret" | passwd user &&  apt-get -y autoremove \
     && apt-get -y clean \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* 
 
 USER user
 
@@ -49,7 +49,8 @@ RUN wget -qO- "http://archive.apache.org/dist/tomcat/tomcat-8/v8.0.24/bin/apache
 
 
 ENV LANG C.UTF-8
-RUN echo "export JAVA_HOME=/opt/jdk$JAVA_VERSION_PREFIX\nexport M2_HOME=/home/user/apache-maven-$MAVEN_VERSION\nexport TOMCAT_HOME=/home/user/tomcat8\nexport PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH" >> /home/user/.bashrc
+RUN echo "export JAVA_HOME=/opt/jdk$JAVA_VERSION_PREFIX\nexport M2_HOME=/home/user/apache-maven-$MAVEN_VERSION\nexport TOMCAT_HOME=/home/user/tomcat8\nexport PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH" >> /home/user/.bashrc && \
+    sudo localedef -i en_US -f UTF-8 en_US.UTF-8
 
 WORKDIR /projects
 
