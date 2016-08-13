@@ -18,15 +18,9 @@ ENV JAVA_VERSION_MAJOR=8 \
     JAVA_PACKAGE=jdk \
     JAVA_JCE=standard \
     JAVA_HOME=/opt/jdk \
-    PATH=${PATH}:/opt/jdk/bin \
     GLIBC_VERSION=2.23-r3 \
+    MAVEN_VERSION=3.3.9 \
     LANG=C.UTF-8
-
-ENV PATH $JAVA_HOME/bin:$M2_HOME/bin:$PATH
-
-ENV MAVEN_VERSION=3.3.9 \
-    M2_HOME="/usr/lib/apache-maven-$MAVEN_VERSION" \
-    TOMCAT_HOME="/home/user/tomcat8" 
 
 # do all in one step
 RUN apk upgrade --update && \
@@ -104,6 +98,10 @@ RUN apk upgrade --update && \
 
 ENV DOCKER_HOST=tcp://192.168.65.1
 
+ENV M2_HOME=/usr/lib/apache-maven-$MAVEN_VERSION \
+    TOMCAT_HOME=/home/user/tomcat8 \ 
+    PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
+
 EXPOSE 22 8000 8080
 
 USER user
@@ -113,3 +111,4 @@ WORKDIR /projects
 CMD sudo /usr/bin/ssh-keygen -A && \
     sudo /usr/sbin/sshd -D && \
     tail -f /dev/null
+    
