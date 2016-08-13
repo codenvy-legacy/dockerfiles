@@ -96,11 +96,11 @@ RUN apk upgrade --update && \
     rm /tmp/apache-tomcat-8.0.29.tar.gz && \
     chown -R user /home/user/
 
-ENV DOCKER_HOST=tcp://192.168.65.1
+ENV DOCKER_HOST=tcp://192.168.65.1 \
+    M2_HOME=/usr/lib/apache-maven-$MAVEN_VERSION \
+    TOMCAT_HOME=/home/user/tomcat8
 
-ENV M2_HOME=/usr/lib/apache-maven-$MAVEN_VERSION \
-    TOMCAT_HOME=/home/user/tomcat8 \ 
-    PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
+ENV PATH=${PATH}:${JAVA_HOME}/bin:${M2_HOME}/bin
 
 EXPOSE 22 8000 8080
 
