@@ -22,9 +22,11 @@ ENV JAVA_VERSION_MAJOR=8 \
     MAVEN_VERSION=3.3.9 \
     LANG=C.UTF-8
 
-# do all in one step
+# Install basic utilities into our base image
 RUN apk upgrade --update && \
-    apk add --update libstdc++ curl ca-certificates bash && \
+    apk add --update --no-cachelibstdc++ curl ca-certificates bash openssh sudo openssl && \
+
+# Install minified JDK per: https://github.com/anapsix/docker-alpine-java
     for pkg in glibc-${GLIBC_VERSION} glibc-bin-${GLIBC_VERSION} glibc-i18n-${GLIBC_VERSION}; do curl -sSL https://github.com/andyshinn/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/${pkg}.apk -o /tmp/${pkg}.apk; done && \
     apk add --allow-untrusted /tmp/*.apk && \
     rm -v /tmp/*.apk && \
@@ -79,27 +81,26 @@ RUN apk upgrade --update && \
            /opt/jdk/jre/lib/plugin.jar \
            /tmp/* /var/cache/apk/* && \
     echo 'hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4' >> /etc/nsswitch.conf && \
-    apk add --update --no-cache openssh curl mc git subversion sudo unzip bash ca-certificates openssl && \
+
+# Install maven
     cd /tmp && \
     wget -q "http://apache.ip-connect.vn.ua/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz" && tar -xzf "apache-maven-$MAVEN_VERSION-bin.tar.gz" && \
     mv "/tmp/apache-maven-$MAVEN_VERSION" "/usr/lib" && \
     rm "/tmp/"* && \
-    deluser svn && \
+
+# Configure the "user" to have passwordless access
     adduser -S user -h /home/user -s /bin/bash -G root -u 1000 && \
     echo "%root ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
     PASS=$(openssl rand -base64 32) && \
     echo -e "${PASS}\n${PASS}" | passwd user && \
-    wget -q "http://archive.apache.org/dist/tomcat/tomcat-8/v8.0.29/bin/apache-tomcat-8.0.29.tar.gz" && \
-    tar -xzf "apache-tomcat-8.0.29.tar.gz" && \
-    mv apache-tomcat-8.0.29 /home/user/tomcat8/ && \
-    rm -rf /home/user/tomcat8/webapps/* && \
-    rm /tmp/apache-tomcat-8.0.29.tar.gz && \
     chown -R user /home/user/
 
+# Hard code the container to find the host's Docker daemon
+# Also setup the maven home
 ENV DOCKER_HOST=tcp://192.168.65.1 \
-    M2_HOME=/usr/lib/apache-maven-$MAVEN_VERSION \
-    TOMCAT_HOME=/home/user/tomcat8
+    M2_HOME=/usr/lib/apache-maven-$MAVEN_VERSION
 
+# Run this environment in separate command otherwise it will not pick up other values
 ENV PATH=${PATH}:${JAVA_HOME}/bin:${M2_HOME}/bin
 
 EXPOSE 22 8000 8080
