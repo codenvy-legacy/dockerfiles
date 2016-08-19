@@ -90,11 +90,15 @@ RUN apk upgrade --update && \
     echo -e "${PASS}\n${PASS}" | passwd user && \
     chown -R user /home/user/
 
-ENV DOCKER_HOST=tcp://192.168.65.1 \
-    M2_HOME=/usr/lib/apache-maven-$MAVEN_VERSION \
-    TOMCAT_HOME=/home/user/tomcat8
+RUN mkdir /usr/che \
+    && wget -qO /usr/che/che https://raw.githubusercontent.com/eclipse/che/CHE-2116/che.sh \
+    && chmod +x /usr/che/che
 
-ENV PATH=${PATH}:${JAVA_HOME}/bin:${M2_HOME}/bin
+ENV DOCKER_HOST=tcp://192.168.65.1 \
+    M2_HOME=/usr/lib/apache-maven-$MAVEN_VERSION 
+
+ENV PATH=${PATH}:${JAVA_HOME}/bin:${M2_HOME}/bin:/usr/che
+
 
 EXPOSE 22 8000 8080
 
