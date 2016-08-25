@@ -23,5 +23,5 @@ FROM="$3"
 HOST="$4"
 TO="$5"
 
-sshpass -p $PASSWORD rsync --archive --update --recursive --rsh="ssh -o StrictHostKeyChecking=no -l $USERNAME" $FROM $USERNAME@$HOST:$TO
+sshpass -p $PASSWORD rsync --archive --update --recursive --delete --rsh="ssh -o StrictHostKeyChecking=no -l $USERNAME" $FROM $USERNAME@$HOST:$TO
 
