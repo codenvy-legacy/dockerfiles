@@ -91,14 +91,13 @@ RUN apk upgrade --update && \
     chown -R user /home/user/
 
 RUN mkdir /usr/che \
-    && wget -qO /usr/che/che https://raw.githubusercontent.com/eclipse/che/CHE-2116/che.sh \
+    && wget -qO /usr/che/che https://raw.githubusercontent.com/eclipse/che/master/che.sh \
     && chmod +x /usr/che/che
 
 ENV DOCKER_HOST=tcp://192.168.65.1 \
     M2_HOME=/usr/lib/apache-maven-$MAVEN_VERSION 
 
 ENV PATH=${PATH}:${JAVA_HOME}/bin:${M2_HOME}/bin:/usr/che
-
 
 EXPOSE 22 8000 8080
 
