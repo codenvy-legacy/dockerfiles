@@ -46,7 +46,7 @@ RUN wget -qO- "http://archive.apache.org/dist/tomcat/tomcat-8/v8.0.24/bin/apache
 USER root
 RUN  echo -e "JAVA_HOME=/opt/jdk$JAVA_VERSION_PREFIX\nM2_HOME=/home/user/apache-maven-$MAVEN_VERSION\nTOMCAT_HOME=/home/user/tomcat8\nPATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH" >> /etc/environment
 USER user
-ENV LANG C.UTF-8
+ENV LANG=en_US.UTF-8
 
 WORKDIR /projects
 
