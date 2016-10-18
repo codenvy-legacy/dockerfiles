@@ -16,12 +16,14 @@
 # $3 - from
 # $4 - host
 # $5 - to
+# $6 - port
 
 USERNAME="$1"
 PASSWORD="$2"
 FROM="$3"
 HOST="$4"
 TO="$5"
+PORT="$6"
 
-sshpass -p $PASSWORD rsync --archive --update --recursive --delete --rsh="ssh -o StrictHostKeyChecking=no -l $USERNAME" $FROM $USERNAME@$HOST:$TO
+sshpass -p $PASSWORD rsync --archive --update --recursive --delete --rsh="ssh -p $PORT -o StrictHostKeyChecking=no -l $USERNAME" $FROM $USERNAME@$HOST:$TO
 
