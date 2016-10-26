@@ -66,7 +66,9 @@ RUN sudo dpkg --add-architecture i386 && \
 
 ADD index.html /opt/noVNC/
 ADD supervisord.conf /opt/
-
+RUN svn --version && \
+    sed -i 's/# store-passwords = no/store-passwords = yes/g' /home/user/.subversion/servers && \
+    sed -i 's/# store-plaintext-passwords = no/store-plaintext-passwords = yes/g' /home/user/.subversion/servers
 ENTRYPOINT ["/home/user/entrypoint.sh"]
 EXPOSE 4403 6080 22
 

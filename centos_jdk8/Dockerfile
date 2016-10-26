@@ -43,8 +43,9 @@ ENV TERM xterm
 
 RUN wget -qO- "http://archive.apache.org/dist/tomcat/tomcat-8/v8.0.24/bin/apache-tomcat-8.0.24.tar.gz" | tar -zx --strip-components=1 -C /home/user/tomcat8 && \
     rm -rf /home/user/tomcat8/webapps/*
-USER root
-RUN  echo -e "JAVA_HOME=/opt/jdk$JAVA_VERSION_PREFIX\nM2_HOME=/home/user/apache-maven-$MAVEN_VERSION\nTOMCAT_HOME=/home/user/tomcat8\nPATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH" >> /etc/environment
+RUN svn --version && \
+    sed -i 's/# store-passwords = no/store-passwords = yes/g' /home/user/.subversion/servers && \
+    sed -i 's/# store-plaintext-passwords = no/store-plaintext-passwords = yes/g' /home/user/.subversion/servers
 USER user
 ENV LANG=en_US.UTF-8
 

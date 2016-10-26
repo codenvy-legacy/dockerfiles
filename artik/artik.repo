@@ -1,15 +1,8 @@
-[artik]
-name=Artik 22 - noarch
+[artik-noarch]
+name=Artik 24 - noarch
 failovermethod=priority
-baseurL=http://repo.artik.cloud/artik/bin/pub/fedora/linux/releases/22/Everything/noarch/os/
+baseurL=http://repo.artik.cloud/artik/bin/pub/artik/linux/releases/24/Everything/noarch/os/
 enabled=1
 gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-artik-22-noarch
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-artik
 
-[artik-ide]
-name=Artik 22 - noarch
-failovermethod=priority
-baseurL=http://repo.artik.cloud/artik/bin/pub/fedora/linux/releases/22/Everything/noarch/os/
-enabled=1
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-artik-22-noarch

@@ -20,7 +20,7 @@ RUN apt-get update && \
 USER user
 
 RUN cd /home/user && wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - && \
-    wget -q http://chromedriver.storage.googleapis.com/2.19/chromedriver_linux64.zip && \
+    wget -q http://chromedriver.storage.googleapis.com/2.24/chromedriver_linux64.zip && \
     unzip -q chromedriver_linux64.zip && rm chromedriver_linux64.zip
 
 USER root

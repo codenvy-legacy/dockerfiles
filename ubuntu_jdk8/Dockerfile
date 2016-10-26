@@ -37,7 +37,7 @@ M2_HOME=/home/user/apache-maven-$MAVEN_VERSION
 
 ENV PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
 
-RUN mkdir /home/user/cbuild /home/user/tomcat8 /home/user/apache-maven-$MAVEN_VERSION && \
+RUN mkdir /home/user/tomcat8 /home/user/apache-maven-$MAVEN_VERSION && \
   wget \
   --no-cookies \
   --no-check-certificate \
@@ -53,9 +53,10 @@ RUN wget -qO- "http://archive.apache.org/dist/tomcat/tomcat-8/v8.0.24/bin/apache
 
 ENV LANG en_GB.UTF-8
 ENV LANG en_US.UTF-8
-RUN echo "export JAVA_HOME=/opt/jdk$JAVA_VERSION_PREFIX\nexport M2_HOME=/home/user/apache-maven-$MAVEN_VERSION\nexport TOMCAT_HOME=/home/user/tomcat8\nexport PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH" >> /home/user/.bashrc && \
-    sudo locale-gen en_US.UTF-8
-
+RUN sudo locale-gen en_US.UTF-8 && \
+    svn --version && \
+    sed -i 's/# store-passwords = no/store-passwords = yes/g' /home/user/.subversion/servers && \
+    sed -i 's/# store-plaintext-passwords = no/store-plaintext-passwords = yes/g' /home/user/.subversion/servers
 WORKDIR /projects
 
 CMD sudo /usr/sbin/sshd -D && \

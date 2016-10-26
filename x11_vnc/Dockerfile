@@ -23,9 +23,6 @@ RUN sudo mkdir -p /etc/X11/blackbox && \
     echo "[begin] (Blackbox) \n [exec] (Terminal)     {urxvt -fn "xft:Terminus:size=12"} \n [end]" | sudo tee -a /etc/X11/blackbox/blackbox-menu
 
 ADD supervisord.conf /opt/
-RUN  echo "#! /bin/bash\n set -e\n sudo /usr/sbin/sshd -D &\n/usr/bin/supervisord -c /opt/supervisord.conf &\n exec \"\$@\"" > /home/user/entrypoint.sh && chmod a+x /home/user/entrypoint.sh
-RUN cat /home/user/entrypoint.sh
 EXPOSE 6080
-ENTRYPOINT ["/home/user/entrypoint.sh"]
 WORKDIR /projects
-CMD tail -f /dev/null
+CMD /usr/bin/supervisord -c /opt/supervisord.conf && tail -f /dev/null
