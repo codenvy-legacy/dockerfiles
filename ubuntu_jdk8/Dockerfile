@@ -6,7 +6,7 @@
 # Contributors:
 # Codenvy, S.A. - initial API and implementation
 
-FROM ubuntu
+FROM ubuntu:14.04
 EXPOSE 4403 8000 8080 9876 22
 RUN apt-get update && \
     apt-get -y install sudo openssh-server procps wget unzip mc curl subversion software-properties-common python-software-properties && \
